@@ -685,7 +685,6 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
 @keyframes logoShine{to{transform:translateX(130%)}}
 #intro{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:#F7F5F1;transition:opacity .45s ease,visibility 0s .45s;animation:introAway .45s 4.6s forwards;cursor:pointer}
 #intro.out{opacity:0;visibility:hidden}
-.fb-seen #intro{display:none}
 @keyframes introAway{to{opacity:0;visibility:hidden}}
 #intro .box{position:relative;display:grid;place-items:center;gap:18px}
 #intro .intro-ring{position:absolute;width:270px;height:270px;max-width:none;top:50%;left:50%;margin:-135px 0 0 -135px}
@@ -697,7 +696,7 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
 @keyframes ringDraw{to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){#intro{display:none}header .brand img,header .brand::after{animation:none}}
 </style>
-<script>try{if(sessionStorage.getItem('fb-intro')==='1')document.documentElement.classList.add('fb-seen')}catch(e){}</script>
+
 </head>
 <body>
 <div id="intro" aria-hidden="true"><div class="box"><svg class="intro-ring" viewBox="0 0 200 200"><circle class="track" cx="100" cy="100" r="95"/><circle cx="100" cy="100" r="95"/></svg><img alt=""><p>Your Finance Buddy</p></div><span class="skip">Tap anywhere to skip</span></div>
@@ -1106,11 +1105,10 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
 })();
 
 (function(){
-  /* first-visit logo intro: once per visit, then removed */
+  /* logo intro on every page load or reload, then removed */
   var intro=document.getElementById('intro');if(!intro)return;
-  if(document.documentElement.classList.contains('fb-seen')||matchMedia('(prefers-reduced-motion: reduce)').matches){intro.remove();return}
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){intro.remove();return}
   var logo=document.querySelector('header .brand img');if(logo)intro.querySelector('img').src=logo.src;
-  try{sessionStorage.setItem('fb-intro','1')}catch(e){}
   var done=false;function hide(){if(done)return;done=true;intro.classList.add('out');setTimeout(function(){intro.remove()},600)}
   setTimeout(hide,3300);intro.addEventListener('click',hide);addEventListener('keydown',function(e){if(e.key==='Escape')hide()});
 })();
