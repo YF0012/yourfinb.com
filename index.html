@@ -695,6 +695,113 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
 #intro p{margin:0;font:600 12px "Public Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#2E6B5C;animation:logoIn .6s .25s both}
 @keyframes ringDraw{to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){#intro{display:none}header .brand img,header .brand::after{animation:none}}
+/* ---------- How we work: step detail rows ---------- */
+.hw-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:center;margin-bottom:56px}
+.hw-row.flip .hw-art{order:2}
+.hw-art{background:radial-gradient(120% 90% at 20% 10%,color-mix(in srgb,var(--leaf) 50%,#fff),var(--bg) 70%);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 18px 44px rgba(27,66,57,.10)}
+.hw-art svg{display:block;width:100%;height:auto;overflow:visible}
+.hw-step{display:inline-block;font:600 12px "Public Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);background:var(--leaf);border-radius:999px;padding:5px 12px}
+.hw-txt h3{font-size:clamp(30px,3vw,40px);margin:12px 0 8px}
+.hw-lead{font-size:18px;color:var(--ink);margin:0 0 22px;max-width:52ch}
+.hw-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px}
+.hw-cols h4{font:600 12px "Public Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf-deep);margin:0 0 12px}
+.hw-cols .inc{margin:0;font-size:15px}
+.hw-you{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15px}
+.hw-you li{display:flex;gap:12px;align-items:center}
+.hw-you li::before{content:"";flex:none;width:20px;height:20px;border-radius:6px;background:var(--card);border:2px solid var(--leaf-deep)}
+.hw-get{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.hw-get b{font-size:14px;margin-right:4px}
+.hw-get span{font-size:14px;font-weight:600;color:var(--forest);background:color-mix(in srgb,var(--leaf) 40%,#fff);border-radius:8px;padding:6px 10px}
+@media (max-width:900px){.hw-row,.hw-row.flip{grid-template-columns:1fr;gap:24px}.hw-row.flip .hw-art{order:0}.hw-art{max-width:520px}}
+@media (max-width:560px){.hw-cols{grid-template-columns:1fr}}
+/* shared illustration parts */
+.h-win{fill:#fff;stroke:var(--line);stroke-width:1.5}
+.h-bar{fill:var(--forest)}
+.h-d1{fill:#E8806B}.h-d2{fill:#E4C766}.h-d3{fill:var(--leaf)}
+.h-tile{fill:color-mix(in srgb,var(--leaf-deep) 12%,#fff)}
+.h-av.a1{fill:var(--forest)}.h-av.a2{fill:var(--leaf-deep)}
+.h-wave rect{fill:var(--leaf-deep);transform-box:fill-box;transform-origin:50% 50%;animation:hWave .6s ease-in-out infinite alternate}
+.h-wave rect:nth-child(2){animation-delay:.15s}.h-wave rect:nth-child(3){animation-delay:.3s}.h-wave rect:nth-child(4){animation-delay:.45s}
+.h-wave.w1{animation:hTalk1 4s infinite}.h-wave.w2{animation:hTalk2 4s infinite}
+@keyframes hWave{from{transform:scaleY(.3)}to{transform:scaleY(1)}}
+@keyframes hTalk1{0%,45%{opacity:1}50%,95%{opacity:.15}100%{opacity:1}}
+@keyframes hTalk2{0%,45%{opacity:.15}50%,95%{opacity:1}100%{opacity:.15}}
+.h-bub rect{fill:var(--card);stroke:var(--line)}
+.h-bub .ln{fill:var(--leaf-deep);stroke:none}
+.h-bub{opacity:0}
+.h-bub.b1{animation:hBub1 4s infinite}.h-bub.b2{animation:hBub2 4s infinite}
+@keyframes hBub1{0%{opacity:0;transform:translateY(6px)}10%,42%{opacity:1;transform:none}50%,100%{opacity:0}}
+@keyframes hBub2{0%,50%{opacity:0;transform:translateY(6px)}60%,92%{opacity:1;transform:none}100%{opacity:0}}
+.h-ctl{fill:var(--forest);opacity:.85}
+.h-link{fill:none;stroke:color-mix(in srgb,var(--leaf-deep) 40%,transparent);stroke-width:2.5;stroke-dasharray:6 6;animation:aMarch 1s linear infinite}
+.h-link.out{stroke:var(--leaf-deep)}
+.h-pkt{fill:var(--leaf-deep)}.h-pkt.hi{fill:var(--leaf);stroke:var(--forest);stroke-width:2}
+.h-src rect{fill:#fff;stroke:var(--line);stroke-width:1.5}
+.h-src path,.h-src .ic{fill:none;stroke:var(--forest);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.h-tx{font:600 12px "Public Sans",sans-serif;fill:var(--muted);text-anchor:middle}
+.h-hub{fill:var(--forest)}
+.h-hub-ring{fill:none;stroke:var(--leaf);stroke-width:3;transform-box:fill-box;transform-origin:center;animation:hRing 2.4s ease-out infinite}
+@keyframes hRing{from{transform:scale(.8);opacity:1}to{transform:scale(1.25);opacity:0}}
+.h-hub-ic{fill:none;stroke:#C3F18A;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.h-out rect{fill:#fff;stroke:var(--leaf-deep);stroke-width:2}
+.h-out path{stroke:var(--forest);stroke-width:5;stroke-linecap:round}
+.h-cal{fill:var(--forest)}
+.h-pin{fill:var(--leaf-deep)}
+.h-month{font:700 15px "Saira Semi Condensed",sans-serif;fill:#C3F18A;text-anchor:middle;letter-spacing:.06em}
+.h-day rect{fill:color-mix(in srgb,var(--leaf-deep) 10%,#fff);animation:hDay 6s var(--d) infinite}
+.h-day path{fill:none;stroke:var(--forest);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;opacity:0;animation:hTick 6s var(--d) infinite}
+@keyframes hDay{0%,4%{fill:color-mix(in srgb,var(--leaf-deep) 10%,#fff)}8%,80%{fill:#C3F18A}92%,100%{fill:color-mix(in srgb,var(--leaf-deep) 10%,#fff)}}
+@keyframes hTick{0%,5%{opacity:0}9%,80%{opacity:1}92%,100%{opacity:0}}
+.h-stamp{transform-box:fill-box;transform-origin:center;opacity:0;animation:hStamp 6s infinite}
+.h-stamp rect{fill:var(--forest)}
+.h-stamp text{font:700 17px "Saira Semi Condensed",sans-serif;fill:#C3F18A;text-anchor:middle}
+@keyframes hStamp{0%,48%{opacity:0;transform:scale(1.6) rotate(-8deg)}54%{opacity:1;transform:scale(.95) rotate(-6deg)}58%,82%{opacity:1;transform:scale(1) rotate(-6deg)}92%,100%{opacity:0;transform:scale(1) rotate(-6deg)}}
+.h-kpi rect:first-child{fill:color-mix(in srgb,var(--leaf) 30%,#fff)}
+.h-kpi .v{fill:var(--forest)}.h-kpi .l{fill:color-mix(in srgb,var(--leaf-deep) 35%,#fff)}
+.h-kpi .v{transform-box:fill-box;transform-origin:0 50%;animation:hKpi 3s ease-in-out infinite alternate}
+.h-kpi:nth-child(3) .v{animation-delay:.4s}.h-kpi:nth-child(4) .v{animation-delay:.8s}
+@keyframes hKpi{from{transform:scaleX(.55)}to{transform:scaleX(1)}}
+.h-gridl{stroke:var(--line);stroke-dasharray:3 5}
+.h-area{fill:color-mix(in srgb,var(--leaf) 45%,transparent)}
+.h-line{fill:none;stroke:var(--forest);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:260;stroke-dashoffset:260;animation:aDraw 4s ease-in-out infinite}
+.h-pt{fill:var(--forest);stroke:#fff;stroke-width:3}
+.h-advice{animation:aFloatA 3.2s ease-in-out infinite}
+@keyframes aFloatA{50%{transform:translateY(-6px)}}
+.h-advice rect:first-child,.h-advice .tail{fill:var(--forest)}
+.h-advice .ln{fill:#C3F18A;opacity:.85}
+.h-advice .bulb{fill:#C3F18A;animation:hBulb 1.6s ease-in-out infinite}
+.h-advice .bulbl{stroke:#C3F18A;stroke-width:3;stroke-linecap:round}
+@keyframes hBulb{50%{fill:#F4FFE4;filter:drop-shadow(0 0 6px #C3F18A)}}
+/* ---------- monthly rhythm ---------- */
+.rh-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:36px 32px 28px;box-shadow:0 14px 36px rgba(27,66,57,.08)}
+.rh-track{position:relative;height:8px;border-radius:999px;background:var(--wash);margin:6px 10% 26px}
+.rh-fill{position:absolute;inset:0 auto 0 0;border-radius:inherit;background:linear-gradient(90deg,var(--leaf-deep),var(--leaf));animation:rhFill 10s linear infinite}
+.rh-dot{position:absolute;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--leaf);border:4px solid var(--forest);animation:rhDot 10s linear infinite}
+@keyframes rhFill{from{width:0}to{width:100%}}
+@keyframes rhDot{from{left:0}to{left:100%}}
+.rh-phases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.rh-phases li{text-align:center;padding:16px 12px;border-radius:16px;border:1px solid transparent;animation:rhOn 10s linear infinite;animation-delay:calc(var(--i) * 2s - .4s)}
+@keyframes rhOn{0%{background:color-mix(in srgb,var(--leaf) 35%,#fff);border-color:var(--leaf-deep)}20%,100%{background:transparent;border-color:transparent}}
+.rh-n{display:grid;place-items:center;width:34px;height:34px;margin:0 auto 10px;border-radius:50%;background:var(--forest);color:var(--on-forest);font:700 16px "Saira Semi Condensed",sans-serif}
+.rh-phases b{display:block;font:600 20px "Saira Semi Condensed",sans-serif;margin-bottom:4px}
+.rh-phases span:not(.rh-n){font-size:14px;color:var(--muted);line-height:1.45}
+.rh-loop{display:flex;align-items:center;justify-content:center;gap:8px;margin:20px 0 0;font-weight:600;color:var(--leaf-deep);font-size:14px}
+.rh-loop svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;animation:spin 6s linear infinite}
+@media (max-width:900px){.rh-track{display:none}.rh-phases{grid-template-columns:1fr 1fr}.rh-phases li{text-align:left;display:grid;grid-template-columns:34px 1fr;column-gap:12px}.rh-n{margin:0;grid-row:span 2}}
+@media (max-width:520px){.rh-phases{grid-template-columns:1fr}}
+/* ---------- principles ---------- */
+.hw-pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hw-pr{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.hw-pr:hover{transform:translateY(-4px);border-color:var(--leaf-deep);box-shadow:0 18px 40px -16px rgba(27,66,57,.35)}
+.hw-pr-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:color-mix(in srgb,var(--leaf) 45%,#fff);margin-bottom:14px;transition:background .25s}
+.hw-pr-ico svg{width:26px;height:26px;fill:none;stroke:var(--forest);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .25s}
+.hw-pr:hover .hw-pr-ico{background:var(--forest)}.hw-pr:hover .hw-pr-ico svg{stroke:#C3F18A}
+.hw-pr.in .hw-pr-ico{animation:hPop .6s .2s cubic-bezier(.2,.8,.2,1.4) both}
+@keyframes hPop{from{transform:scale(.5) rotate(-12deg);opacity:0}to{transform:none;opacity:1}}
+.hw-pr h3{font-size:22px;margin-bottom:6px}
+.hw-pr p{margin:0;color:var(--muted);font-size:15px}
+@media (max-width:900px){.hw-pr-grid{grid-template-columns:1fr 1fr}}@media (max-width:560px){.hw-pr-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.hw-art *,.rh-fill,.rh-dot,.rh-phases li,.rh-loop svg,.hw-pr-ico{animation:none!important}.h-bub,.h-stamp{opacity:1}.h-day path{opacity:1}.rh-fill{width:100%}}
 </style>
 
 </head>
@@ -805,7 +912,52 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
       <li><span class="num">4</span><h3>Ongoing advice</h3><p>Regular reviews on cash, budgets and growth plans with your finance lead.</p></li>
     </ol>
   </div>
-</section><section class="flow-sec"><div class="wrap"><div class="head2"><h2>From transactions to decisions</h2><p>How your raw data becomes numbers you can act on.</p></div><div class="flow"><div class="flow-line" aria-hidden="true"><i></i><i></i><i></i></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3z"/><path d="M3 11h18M7 15h4"/></svg></div><div><h3>Transactions</h3><p>Everything that moves money in your business.</p><div class="flow-tags"><span>Bank</span><span>Cards</span><span>Invoices</span><span>Payroll</span></div></div></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 13l2 2 4-4.5"/></svg></div><div><h3>Clean books</h3><p>Recorded, matched and checked every month.</p><div class="flow-tags"><span>Categorised</span><span>Reconciled</span></div></div></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><div><h3>Reports and forecasts</h3><p>Clear monthly reports and a forward-looking forecast.</p><div class="flow-tags"><span>P&amp;L</span><span>Cash flow</span><span>KPIs</span></div></div></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><div><h3>Better decisions</h3><p>Confident choices on hiring, spending and growth.</p><div class="flow-tags"><span>Hiring</span><span>Pricing</span><span>Funding</span></div></div></div></div></div></section><section class="tax"><div class="wrap"><div class="tax-band"><div><h2>Ready to talk about your numbers?</h2><p>Tell us where you are today and what you need. We’ll reply with a simple plan.</p></div><a class="btn btn-primary" href="#contact">Contact us</a></div></div></section></div><div class="view" data-view="who" hidden><section class="page-head"><div class="wrap"><h1>Who we help</h1><p>The same care at every stage, from first round to multinational group.</p></div></section><section class="who">
+</section><section class="hw-detail"><div class="wrap"><div class="head2"><h2>Each step in detail</h2><p>What happens at each stage, what we need from you and what you receive.</p></div><div class="hw-row"><div class="hw-art"><svg viewBox="0 0 360 240" aria-hidden="true">
+<rect class="h-win" x="20" y="16" width="320" height="208" rx="16"/><rect class="h-bar" x="20" y="16" width="320" height="30" rx="16"/><rect class="h-bar" x="20" y="32" width="320" height="14"/>
+<circle class="h-d1" cx="42" cy="31" r="5"/><circle class="h-d2" cx="58" cy="31" r="5"/><circle class="h-d3" cx="74" cy="31" r="5"/>
+<rect class="h-tile" x="36" y="60" width="138" height="112" rx="12"/><rect class="h-tile" x="186" y="60" width="138" height="112" rx="12"/>
+<circle class="h-av a1" cx="105" cy="104" r="20"/><path class="h-av a1" d="M73 160c4-20 18-30 32-30s28 10 32 30z"/>
+<circle class="h-av a2" cx="255" cy="104" r="20"/><path class="h-av a2" d="M223 160c4-20 18-30 32-30s28 10 32 30z"/>
+<g class="h-wave w1"><rect x="92" y="180" width="4" height="12" rx="2"/><rect x="100" y="176" width="4" height="20" rx="2"/><rect x="108" y="180" width="4" height="12" rx="2"/><rect x="116" y="178" width="4" height="16" rx="2"/></g>
+<g class="h-wave w2"><rect x="242" y="180" width="4" height="12" rx="2"/><rect x="250" y="176" width="4" height="20" rx="2"/><rect x="258" y="180" width="4" height="12" rx="2"/><rect x="266" y="178" width="4" height="16" rx="2"/></g>
+<g class="h-bub b1"><rect x="120" y="66" width="70" height="26" rx="13"/><rect class="ln" x="132" y="77" width="46" height="4" rx="2"/></g>
+<g class="h-bub b2"><rect x="168" y="120" width="76" height="26" rx="13"/><rect class="ln" x="180" y="131" width="52" height="4" rx="2"/></g>
+<rect class="h-ctl" x="140" y="200" width="80" height="14" rx="7"/></svg></div><div class="hw-txt"><span class="hw-step">Step 1</span><h3>Discovery call</h3><p class="hw-lead">A relaxed conversation to understand your business, your current books and what you need from your numbers.</p>
+<div class="hw-cols"><div><h4>What we do</h4><ul class="inc"><li>Learn how your business makes and spends money</li><li>Review your current books and reports</li><li>Agree which services fit and why</li></ul></div><div><h4>What you do</h4><ul class="hw-you"><li>Share a little about your goals</li><li>Tell us which systems you use</li></ul></div></div>
+<div class="hw-get"><b>You get</b><span>A simple plan and scope</span><span>A clear quote</span></div></div></div><div class="hw-row flip"><div class="hw-art"><svg viewBox="0 0 360 240" aria-hidden="true">
+<path id="hp1" class="h-link" d="M86 52 C150 52 140 120 180 120"/><path id="hp2" class="h-link" d="M86 120 L180 120"/><path id="hp3" class="h-link" d="M86 188 C150 188 140 120 180 120"/><path id="hp4" class="h-link out" d="M180 120 L290 120"/>
+<circle r="5" class="h-pkt"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#hp1"/></animateMotion></circle>
+<circle r="5" class="h-pkt"><animateMotion dur="2.4s" begin=".8s" repeatCount="indefinite"><mpath href="#hp2"/></animateMotion></circle>
+<circle r="5" class="h-pkt"><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite"><mpath href="#hp3"/></animateMotion></circle>
+<circle r="5" class="h-pkt hi"><animateMotion dur="1.6s" begin=".4s" repeatCount="indefinite"><mpath href="#hp4"/></animateMotion></circle>
+<g class="h-src"><rect x="18" y="30" width="68" height="44" rx="10"/><path d="M36 60h32M38 58v-12M46 58v-12M54 58v-12M62 58v-12M34 46l18-8 18 8z"/></g>
+<g class="h-src"><rect x="18" y="98" width="68" height="44" rx="10"/><rect class="ic" x="34" y="110" width="36" height="22" rx="4"/><path d="M34 117h36M40 126h10"/></g>
+<g class="h-src"><rect x="18" y="166" width="68" height="44" rx="10"/><path d="M42 176h16l6 6v18H42zM46 186h14M46 192h14M46 198h9"/></g>
+<text class="h-tx" x="52" y="88">Bank</text><text class="h-tx" x="52" y="156">Cards</text><text class="h-tx" x="52" y="224">Invoices</text>
+<circle class="h-hub-ring" cx="180" cy="120" r="44"/><circle class="h-hub" cx="180" cy="120" r="34"/>
+<path class="h-hub-ic" d="M166 106h22l6 6v22h-28zM171 120l5 5 10-11"/>
+<text class="h-tx" x="180" y="182">Your books</text>
+<g class="h-out"><rect x="290" y="90" width="56" height="60" rx="12"/><path d="M304 136v-14M314 136v-22M324 136v-10M334 136v-18"/></g><text class="h-tx" x="318" y="166">Reports</text></svg></div><div class="hw-txt"><span class="hw-step">Step 2</span><h3>Setup</h3><p class="hw-lead">We connect to your systems, tidy past records and agree the reports you will receive.</p>
+<div class="hw-cols"><div><h4>What we do</h4><ul class="inc"><li>Connect your accounting system, bank feeds and cards</li><li>Catch up and clean past records</li><li>Set up your reporting pack and calendar</li></ul></div><div><h4>What you do</h4><ul class="hw-you"><li>Grant access to your systems</li><li>Answer a few questions about past transactions</li></ul></div></div>
+<div class="hw-get"><b>You get</b><span>Clean, reconciled opening books</span><span>A reporting calendar you can plan around</span></div></div></div><div class="hw-row"><div class="hw-art"><svg viewBox="0 0 360 240" aria-hidden="true"><rect class="h-win" x="24" y="20" width="312" height="206" rx="16"/><rect class="h-cal" x="24" y="20" width="312" height="40" rx="16"/><rect class="h-cal" x="24" y="44" width="312" height="16"/>
+<rect class="h-pin" x="90" y="10" width="8" height="22" rx="4"/><rect class="h-pin" x="262" y="10" width="8" height="22" rx="4"/>
+<text class="h-month" x="180" y="46">This month</text><g class="h-day" style="--d:0.00s"><rect x="37" y="74" width="30" height="24" rx="6"/><path d="M46 86l4 4 8-9"/></g><g class="h-day" style="--d:0.09s"><rect x="75" y="74" width="30" height="24" rx="6"/><path d="M84 86l4 4 8-9"/></g><g class="h-day" style="--d:0.18s"><rect x="113" y="74" width="30" height="24" rx="6"/><path d="M122 86l4 4 8-9"/></g><g class="h-day" style="--d:0.27s"><rect x="151" y="74" width="30" height="24" rx="6"/><path d="M160 86l4 4 8-9"/></g><g class="h-day" style="--d:0.36s"><rect x="189" y="74" width="30" height="24" rx="6"/><path d="M198 86l4 4 8-9"/></g><g class="h-day" style="--d:0.45s"><rect x="227" y="74" width="30" height="24" rx="6"/><path d="M236 86l4 4 8-9"/></g><g class="h-day" style="--d:0.54s"><rect x="265" y="74" width="30" height="24" rx="6"/><path d="M274 86l4 4 8-9"/></g><g class="h-day" style="--d:0.63s"><rect x="37" y="106" width="30" height="24" rx="6"/><path d="M46 118l4 4 8-9"/></g><g class="h-day" style="--d:0.72s"><rect x="75" y="106" width="30" height="24" rx="6"/><path d="M84 118l4 4 8-9"/></g><g class="h-day" style="--d:0.81s"><rect x="113" y="106" width="30" height="24" rx="6"/><path d="M122 118l4 4 8-9"/></g><g class="h-day" style="--d:0.90s"><rect x="151" y="106" width="30" height="24" rx="6"/><path d="M160 118l4 4 8-9"/></g><g class="h-day" style="--d:0.99s"><rect x="189" y="106" width="30" height="24" rx="6"/><path d="M198 118l4 4 8-9"/></g><g class="h-day" style="--d:1.08s"><rect x="227" y="106" width="30" height="24" rx="6"/><path d="M236 118l4 4 8-9"/></g><g class="h-day" style="--d:1.17s"><rect x="265" y="106" width="30" height="24" rx="6"/><path d="M274 118l4 4 8-9"/></g><g class="h-day" style="--d:1.26s"><rect x="37" y="138" width="30" height="24" rx="6"/><path d="M46 150l4 4 8-9"/></g><g class="h-day" style="--d:1.35s"><rect x="75" y="138" width="30" height="24" rx="6"/><path d="M84 150l4 4 8-9"/></g><g class="h-day" style="--d:1.44s"><rect x="113" y="138" width="30" height="24" rx="6"/><path d="M122 150l4 4 8-9"/></g><g class="h-day" style="--d:1.53s"><rect x="151" y="138" width="30" height="24" rx="6"/><path d="M160 150l4 4 8-9"/></g><g class="h-day" style="--d:1.62s"><rect x="189" y="138" width="30" height="24" rx="6"/><path d="M198 150l4 4 8-9"/></g><g class="h-day" style="--d:1.71s"><rect x="227" y="138" width="30" height="24" rx="6"/><path d="M236 150l4 4 8-9"/></g><g class="h-day" style="--d:1.80s"><rect x="265" y="138" width="30" height="24" rx="6"/><path d="M274 150l4 4 8-9"/></g><g class="h-day" style="--d:1.89s"><rect x="37" y="170" width="30" height="24" rx="6"/><path d="M46 182l4 4 8-9"/></g><g class="h-day" style="--d:1.98s"><rect x="75" y="170" width="30" height="24" rx="6"/><path d="M84 182l4 4 8-9"/></g><g class="h-day" style="--d:2.07s"><rect x="113" y="170" width="30" height="24" rx="6"/><path d="M122 182l4 4 8-9"/></g><g class="h-day" style="--d:2.16s"><rect x="151" y="170" width="30" height="24" rx="6"/><path d="M160 182l4 4 8-9"/></g><g class="h-day" style="--d:2.25s"><rect x="189" y="170" width="30" height="24" rx="6"/><path d="M198 182l4 4 8-9"/></g><g class="h-day" style="--d:2.34s"><rect x="227" y="170" width="30" height="24" rx="6"/><path d="M236 182l4 4 8-9"/></g><g class="h-day" style="--d:2.43s"><rect x="265" y="170" width="30" height="24" rx="6"/><path d="M274 182l4 4 8-9"/></g>
+<g class="h-stamp"><rect x="208" y="160" width="112" height="44" rx="10"/><text x="264" y="189">Closed ✓</text></g></svg></div><div class="hw-txt"><span class="hw-step">Step 3</span><h3>Monthly close</h3><p class="hw-lead">Every month your books are recorded, reconciled and closed on a fixed schedule.</p>
+<div class="hw-cols"><div><h4>What we do</h4><ul class="inc"><li>Record and categorise transactions</li><li>Reconcile bank and card accounts</li><li>Close the month and prepare your reports</li></ul></div><div><h4>What you do</h4><ul class="hw-you"><li>Send receipts and answer occasional queries</li><li>Approve anything unusual</li></ul></div></div>
+<div class="hw-get"><b>You get</b><span>Profit and loss, balance sheet and cash position</span><span>Management report with commentary</span></div></div></div><div class="hw-row flip"><div class="hw-art"><svg viewBox="0 0 360 240" aria-hidden="true"><rect class="h-win" x="18" y="26" width="250" height="190" rx="16"/>
+<g class="h-kpi"><rect x="34" y="42" width="66" height="40" rx="8"/><rect class="v" x="42" y="52" width="30" height="8" rx="4"/><rect class="l" x="42" y="66" width="46" height="5" rx="2.5"/></g>
+<g class="h-kpi"><rect x="110" y="42" width="66" height="40" rx="8"/><rect class="v" x="118" y="52" width="38" height="8" rx="4"/><rect class="l" x="118" y="66" width="40" height="5" rx="2.5"/></g>
+<g class="h-kpi"><rect x="186" y="42" width="66" height="40" rx="8"/><rect class="v" x="194" y="52" width="26" height="8" rx="4"/><rect class="l" x="194" y="66" width="48" height="5" rx="2.5"/></g>
+<path class="h-gridl" d="M34 120H252M34 150H252M34 180H252"/>
+<path class="h-area" d="M34 186 L70 172 L106 176 L142 150 L178 140 L214 118 L252 104 L252 200 L34 200Z"/>
+<path class="h-line" d="M34 186 L70 172 L106 176 L142 150 L178 140 L214 118 L252 104"/>
+<circle class="h-pt" cx="252" cy="104" r="6"/>
+<g class="h-advice"><rect x="214" y="150" width="132" height="62" rx="14"/><path d="M234 212 l-6 14 18-14z" class="tail"/><circle class="bulb" cx="238" cy="176" r="11"/><path class="bulbl" d="M234 190h8"/>
+<rect class="ln" x="256" y="168" width="74" height="6" rx="3"/><rect class="ln" x="256" y="182" width="52" height="6" rx="3"/></g></svg></div><div class="hw-txt"><span class="hw-step">Step 4</span><h3>Ongoing advice</h3><p class="hw-lead">Regular reviews of cash, budgets and growth plans with your finance lead.</p>
+<div class="hw-cols"><div><h4>What we do</h4><ul class="inc"><li>Walk you through results in plain English</li><li>Update forecasts and flag risks early</li><li>Support decisions on hiring, pricing and funding</li></ul></div><div><h4>What you do</h4><ul class="hw-you"><li>Join a regular review call</li><li>Share upcoming plans and decisions</li></ul></div></div>
+<div class="hw-get"><b>You get</b><span>Confident, numbers-backed decisions</span><span>Early warning on cash and spending</span></div></div></div></div></section><section class="flow-sec"><div class="wrap"><div class="head2"><h2>From transactions to decisions</h2><p>How your raw data becomes numbers you can act on.</p></div><div class="flow"><div class="flow-line" aria-hidden="true"><i></i><i></i><i></i></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3z"/><path d="M3 11h18M7 15h4"/></svg></div><div><h3>Transactions</h3><p>Everything that moves money in your business.</p><div class="flow-tags"><span>Bank</span><span>Cards</span><span>Invoices</span><span>Payroll</span></div></div></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 13l2 2 4-4.5"/></svg></div><div><h3>Clean books</h3><p>Recorded, matched and checked every month.</p><div class="flow-tags"><span>Categorised</span><span>Reconciled</span></div></div></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><div><h3>Reports and forecasts</h3><p>Clear monthly reports and a forward-looking forecast.</p><div class="flow-tags"><span>P&amp;L</span><span>Cash flow</span><span>KPIs</span></div></div></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><div><h3>Better decisions</h3><p>Confident choices on hiring, spending and growth.</p><div class="flow-tags"><span>Hiring</span><span>Pricing</span><span>Funding</span></div></div></div></div></div></section><section class="hw-rhythm"><div class="wrap"><div class="head2"><h2>Your monthly rhythm</h2><p>The same dependable cycle every month, so you always know what is coming next.</p></div>
+<div class="rh-card"><div class="rh-track" aria-hidden="true"><i class="rh-fill"></i><b class="rh-dot"></b></div>
+<ol class="rh-phases"><li style="--i:0"><span class="rh-n">1</span><b>Record</b><span>Transactions recorded and categorised as they happen.</span></li><li style="--i:1"><span class="rh-n">2</span><b>Reconcile</b><span>Bank and card accounts matched to statements.</span></li><li style="--i:2"><span class="rh-n">3</span><b>Close</b><span>Month closed and checked for accuracy.</span></li><li style="--i:3"><span class="rh-n">4</span><b>Report</b><span>Management report shared with clear commentary.</span></li><li style="--i:4"><span class="rh-n">5</span><b>Review</b><span>Call to discuss results and next steps.</span></li></ol><p class="rh-loop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>Repeats every month</p></div></div></section><section class="hw-pr-sec"><div class="wrap"><div class="head2"><h2>How we work together</h2><p>Simple principles behind every client relationship.</p></div><div class="hw-pr-grid"><div class="hw-pr"><span class="hw-pr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-7 8-7s7 2.5 8 7"/></svg></span><h3>One named contact</h3><p>A finance lead who knows your business, not a ticket queue.</p></div><div class="hw-pr"><span class="hw-pr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 15l2.5 2.5L16 13"/></svg></span><h3>A fixed schedule</h3><p>Books, reports and reviews on dates you can plan around.</p></div><div class="hw-pr"><span class="hw-pr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h3>Your systems</h3><p>We work inside the accounting system you already use.</p></div><div class="hw-pr"><span class="hw-pr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="16" r="1.5"/></svg></span><h3>Access you control</h3><p>You grant access and can remove it at any time.</p></div><div class="hw-pr"><span class="hw-pr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/></svg></span><h3>Plain-English reports</h3><p>Numbers explained, with the actions that matter.</p></div><div class="hw-pr"><span class="hw-pr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M5 16l5-5 4 3 6-7"/><path d="M16 7h4v4"/></svg></span><h3>Grows with you</h3><p>Add services or adjust the scope as your business changes.</p></div></div></div></section><section class="tax"><div class="wrap"><div class="tax-band"><div><h2>Ready to talk about your numbers?</h2><p>Tell us where you are today and what you need. We’ll reply with a simple plan.</p></div><a class="btn btn-primary" href="#contact">Contact us</a></div></div></section></div><div class="view" data-view="who" hidden><section class="page-head"><div class="wrap"><h1>Who we help</h1><p>The same care at every stage, from first round to multinational group.</p></div></section><section class="who">
   <div class="wrap">
     
     <div class="who-grid">
@@ -982,7 +1134,7 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
   var ol=document.querySelector('.o-logo'),hl=document.querySelector('header .brand img');if(ol&&hl)ol.src=hl.src;
   var h1=document.querySelector('.hero h1');
   if(h1){var ws=h1.textContent.trim().split(' ');h1.setAttribute('aria-label',h1.textContent.trim());h1.innerHTML=ws.map(function(w,i){return '<span class="w" aria-hidden="true" style="animation-delay:'+(0.08*i+0.1).toFixed(2)+'s">'+w+'</span>'}).join(' ');}
-  var rvEls=[].slice.call(document.querySelectorAll('.mini a,.who-card,.tax-band,.contact dl,.contact form,.timeline li,.head2,.sign,.calc,.tz-wrap,.faq details,.kpi,.yr-list li,.flow-step'));
+  var rvEls=[].slice.call(document.querySelectorAll('.mini a,.who-card,.tax-band,.contact dl,.contact form,.timeline li,.head2,.sign,.calc,.tz-wrap,.faq details,.kpi,.yr-list li,.flow-step,.hw-row,.rh-card,.hw-pr'));
   rvEls.forEach(function(el){el.classList.add('rv');var sib=[].slice.call(el.parentNode.children).filter(function(c){return c.tagName===el.tagName});el.style.transitionDelay=(Math.max(0,sib.indexOf(el))*0.09).toFixed(2)+'s'});
   if('IntersectionObserver' in window){var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}})},{threshold:.18});rvEls.forEach(function(el){ro.observe(el)});}else rvEls.forEach(function(el){el.classList.add('in')});
   var tl=document.getElementById('timeline');
