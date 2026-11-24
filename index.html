@@ -283,7 +283,7 @@ header .btn-primary:hover{background:#24574B}
 .contact form .btn-primary:hover{background:#24574B}
 .contact form .form-msg{color:#2E6B5C}
 .demo-flag{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--forest);color:var(--on-forest);font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;opacity:.9}
-/* hero: copy + "finance buddy" chat (replaces the map) */
+/* hero: copy + service orbit (replaces the map) */
 .hero{padding:72px 0 72px;text-align:left}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero h1{font-size:clamp(40px,5.2vw,70px);max-width:14ch;margin:0}
@@ -295,43 +295,33 @@ header .btn-primary:hover{background:#24574B}
 .hero-facts li:first-child{padding-left:0;border-left:0}
 .hero-facts b{display:block;font:600 24px/1.2 "Saira Semi Condensed",sans-serif;color:var(--ink)}
 .hero-facts span{font-size:14px;color:var(--muted)}
-.buddy{margin:0;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 30px 60px -30px rgba(27,66,57,.35),0 2px 6px rgba(27,66,57,.06);overflow:hidden;opacity:0;transform:translateY(18px);animation:cardIn .7s .3s cubic-bezier(.2,.7,.2,1) forwards}
-@keyframes cardIn{to{opacity:1;transform:none}}
-.bd-head{display:flex;align-items:center;gap:12px;padding:16px 20px;background:var(--forest);color:var(--on-forest)}
-.bd-av{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--leaf);color:var(--forest);font:700 16px "Saira Semi Condensed",sans-serif;flex:none}
-.bd-head strong{display:block;font:600 19px/1.2 "Saira Semi Condensed",sans-serif}
-.bd-on{display:inline-flex;align-items:center;gap:6px;font-size:13px;opacity:.85}
-.bd-on::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 0 rgba(195,241,138,.7);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 7px rgba(195,241,138,0)}100%{box-shadow:0 0 0 0 rgba(195,241,138,0)}}
-.bd-ex{margin-left:auto;font:600 11px "Public Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(247,245,241,.35);border-radius:999px;padding:4px 10px;opacity:.85}
-.bd-body{display:flex;flex-direction:column;gap:12px;padding:22px 20px;background:var(--bg);min-height:400px}
-.msg{margin:0;max-width:86%;padding:12px 16px;border-radius:18px;font-size:15px;line-height:1.5;opacity:0;transform:translateY(10px) scale(.98);animation:msgIn .45s cubic-bezier(.2,.7,.2,1) forwards}
-.msg p{margin:0}
-.msg.me{align-self:flex-end;background:var(--forest);color:var(--on-forest);border-bottom-right-radius:6px}
-.msg.fb{align-self:flex-start;background:var(--card);color:var(--ink);border:1px solid var(--line);border-bottom-left-radius:6px}
-.m1{animation-delay:.9s}.m2{animation-delay:1.9s}.m3{animation-delay:3.4s}.m4{animation-delay:4.3s}.m5{animation-delay:5.2s}
-@keyframes msgIn{to{opacity:1;transform:none}}
-.msg.m2{width:86%}
-.rw{margin:12px 0 8px;display:grid;gap:6px}
-.rw-row{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted)}
-.rw-row b{color:var(--ink);font:600 15px "Saira Semi Condensed",sans-serif}
-.rw-bar{height:10px;border-radius:999px;background:var(--wash);overflow:hidden;margin-bottom:6px}
-.rw-bar i{display:block;height:100%;width:var(--w);border-radius:inherit;background:var(--leaf-deep);transform-origin:0 50%;transform:scaleX(0);animation:barX 1s 2.3s cubic-bezier(.2,.8,.2,1) forwards}
-.rw-bar.alt i{background:var(--leaf);animation-delay:2.6s}
-@keyframes barX{to{transform:scaleX(1)}}
-.rw-note{font-size:13px;color:var(--leaf-deep);font-weight:600}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.chips span{font-size:12px;font-weight:600;color:var(--forest);background:color-mix(in srgb,var(--leaf) 45%,#fff);border-radius:8px;padding:5px 10px}
-.typing{display:flex;gap:5px;padding:14px 16px}
-.typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);opacity:.5;animation:dot 1.2s infinite}
-.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-@keyframes dot{0%,60%,100%{transform:none;opacity:.4}30%{transform:translateY(-4px);opacity:1}}
-.bd-input{display:flex;align-items:center;gap:12px;padding:14px 16px 14px 20px;border-top:1px solid var(--line);background:var(--card);font-size:14px;color:var(--muted)}
-.bd-input b{margin-left:auto;width:36px;height:36px;border-radius:50%;background:var(--forest);flex:none;position:relative}
-.bd-input b::after{content:"";position:absolute;left:12px;top:13px;width:9px;height:9px;border:solid var(--on-forest);border-width:2px 2px 0 0;transform:rotate(45deg)}
+.orbit-wrap{display:flex;justify-content:center}
+.orbit{position:relative;width:min(540px,100%);aspect-ratio:1;container-type:inline-size;opacity:0;animation:fade .8s .3s forwards}
+.o-ring{position:absolute;inset:50% auto auto 50%;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
+.o-ring.r1{width:46cqw;height:46cqw;background:radial-gradient(circle,color-mix(in srgb,var(--leaf) 55%,transparent),transparent 70%)}
+.o-ring.r2{width:74cqw;height:74cqw;border:1.5px dashed color-mix(in srgb,var(--leaf-deep) 45%,transparent);animation:spin 26s linear infinite}
+.o-ring.r2 i{position:absolute;top:-6px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 3px var(--forest)}
+.o-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:36cqw;height:36cqw;border-radius:50%;background:var(--card);border:1px solid var(--line);box-shadow:0 24px 50px -20px rgba(27,66,57,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;z-index:1}
+.o-center::after{content:"";position:absolute;inset:-10px;border-radius:50%;border:2px solid var(--leaf);opacity:0;animation:ring 3s ease-out infinite}
+.o-logo{width:70%;height:auto}
+.o-center span{font:600 clamp(10px,2.4cqw,13px) "Public Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--leaf-deep)}
+.o-spin{position:absolute;inset:0;animation:spin 60s linear infinite;z-index:2;pointer-events:none}
+.o-in{pointer-events:auto}
+.orbit:hover .o-spin,.orbit:hover .o-in,.orbit:focus-within .o-spin,.orbit:focus-within .o-in{animation-play-state:paused}
+@keyframes spin{to{transform:rotate(360deg)}}
+.o-ring.r2{animation-name:spinC}
+@keyframes spinC{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+.o-node{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(var(--a)) translate(37cqw) rotate(calc(-1 * var(--a)));text-decoration:none}
+.o-in{position:absolute;left:0;top:0;display:flex;flex-direction:column;align-items:center;gap:8px;width:max-content;transform:translate(-50%,-30px);animation:unspin 60s linear infinite}
+@keyframes unspin{from{rotate:0deg}to{rotate:-360deg}}
+.o-ico{display:grid;place-items:center;width:clamp(46px,11.5cqw,62px);height:clamp(46px,11.5cqw,62px);border-radius:50%;background:var(--card);border:1px solid var(--line);box-shadow:0 12px 26px -12px rgba(27,66,57,.45);transition:background .2s,transform .2s}
+.o-ico .ico{width:45%;height:45%;stroke:var(--leaf-deep)}
+.o-lbl{font:600 clamp(12px,2.8cqw,15px) "Public Sans",sans-serif;color:var(--ink);background:color-mix(in srgb,var(--bg) 85%,transparent);border-radius:999px;padding:2px 10px}
+.o-node:hover .o-ico,.o-node:focus-visible .o-ico{background:var(--forest);transform:scale(1.08)}
+.o-node:hover .o-ico .ico,.o-node:focus-visible .o-ico .ico{stroke:var(--leaf)}
 @media (max-width:900px){.hero{padding:48px 0 56px}.hero-grid{grid-template-columns:1fr;gap:40px}.hero h1{max-width:none}}
-@media (max-width:480px){.bd-body{min-height:0;padding:18px 14px}.msg{max-width:92%}.msg.m2{width:92%}.hero-facts{display:grid;gap:0;padding-top:4px}.hero-facts li,.hero-facts li:first-child{display:flex;align-items:baseline;gap:10px;padding:12px 0;border-left:0;border-top:1px solid var(--line)}.hero-facts li:first-child{border-top:0}.hero-facts b{font-size:20px}}
-@media (prefers-reduced-motion:reduce){.buddy,.msg,.rw-bar i,.typing i,.bd-on::before{animation:none!important;opacity:1;transform:none}}
+@media (max-width:480px){.hero-facts{display:grid;gap:0;padding-top:4px}.hero-facts li,.hero-facts li:first-child{display:flex;align-items:baseline;gap:10px;padding:12px 0;border-left:0;border-top:1px solid var(--line)}.hero-facts li:first-child{border-top:0}.hero-facts b{font-size:20px}}
+@media (prefers-reduced-motion:reduce){.orbit,.o-spin,.o-in,.o-ring.r2,.o-center::after{animation:none!important;opacity:1}.o-center::after{opacity:0}}
 </style>
 </head>
 <body>
@@ -355,30 +345,13 @@ header .btn-primary:hover{background:#24574B}
         <li><b>Any time zone</b><span>fully remote team</span></li>
       </ul>
     </div>
-    <figure class="buddy" aria-label="Example conversation: a client asks if they can afford two new hires next quarter, and their Your FinB finance buddy answers with a cash runway comparison and an updated forecast">
-      <div class="bd-head">
-        <span class="bd-av" aria-hidden="true">FB</span>
-        <div><strong>Your finance buddy</strong><span class="bd-on">Online now</span></div>
-        <span class="bd-ex">Example</span>
+    <div class="orbit-wrap">
+      <div class="orbit" role="group" aria-label="Our six services around Your FinB">
+        <span class="o-ring r1" aria-hidden="true"></span><span class="o-ring r2" aria-hidden="true"><i></i></span>
+        <div class="o-center"><img class="o-logo" alt="Your FinB – Your Finance Buddy" width="166" height="50"><span>Your finance buddy</span></div>
+        <div class="o-spin"><a class="o-node" href="#services" data-svc="cfo" style="--a:-90deg"><span class="o-in"><span class="o-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span class="o-lbl">Virtual CFO</span></span></a><a class="o-node" href="#services" data-svc="fpa" style="--a:-30deg"><span class="o-in"><span class="o-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="o-lbl">FP&amp;A</span></span></a><a class="o-node" href="#services" data-svc="book" style="--a:30deg"><span class="o-in"><span class="o-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span><span class="o-lbl">Bookkeeping</span></span></a><a class="o-node" href="#services" data-svc="fund" style="--a:90deg"><span class="o-in"><span class="o-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.5v11M9 9.5c0-1.4 1.3-2 3-2s3 .7 3 2-1.3 1.8-3 2.2-3 .9-3 2.3 1.3 2 3 2 3-.7 3-2"/></svg></span><span class="o-lbl">Fundraising</span></span></a><a class="o-node" href="#services" data-svc="cap" style="--a:150deg"><span class="o-in"><span class="o-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6.4 6.4"/></svg></span><span class="o-lbl">Cap table</span></span></a><a class="o-node" href="#services" data-svc="feas" style="--a:210deg"><span class="o-in"><span class="o-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></span><span class="o-lbl">Feasibility</span></span></a></div>
       </div>
-      <div class="bd-body" aria-hidden="true">
-        <p class="msg me m1">Can we afford two new hires next quarter?</p>
-        <div class="msg fb m2">
-          <p>Yes. I ran it against your forecast:</p>
-          <div class="rw">
-            <div class="rw-row"><span>Cash runway today</span><b>14 months</b></div>
-            <div class="rw-bar"><i style="--w:88%"></i></div>
-            <div class="rw-row"><span>With two hires</span><b>11 months</b></div>
-            <div class="rw-bar alt"><i style="--w:69%"></i></div>
-          </div>
-          <p class="rw-note">Still above your 9-month safety line.</p>
-        </div>
-        <p class="msg me m3">Great. Can you add it to the board pack?</p>
-        <div class="msg fb m4"><p>Done. Updated forecast and hiring plan attached.</p><span class="chips"><span>Forecast.xlsx</span><span>Board pack.pdf</span></span></div>
-        <p class="msg fb typing m5"><i></i><i></i><i></i></p>
-      </div>
-      <div class="bd-input" aria-hidden="true"><span>Ask about cash, budgets, investors…</span><b></b></div>
-    </figure>
+    </div>
   </div>
 </section><div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Virtual CFO</span><span>FP&amp;A</span><span>Virtual bookkeeping</span><span>Fundraising readiness</span><span>Cap table management</span><span>Feasibility studies</span><span>Virtual CFO</span><span>FP&amp;A</span><span>Virtual bookkeeping</span><span>Fundraising readiness</span><span>Cap table management</span><span>Feasibility studies</span></div></div><section class="teaser"><div class="wrap"><div class="head2"><h2>What we do</h2><p>Six ways we support your finance function. Open one to see what’s included.</p></div><div class="mini"><a href="#services" data-svc="cfo"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><div><strong>Virtual CFO</strong><span>A senior finance partner for your leadership team, part-time and on demand.</span></div></a><a href="#services" data-svc="fpa"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><div><strong>FP&amp;A</strong><span>Budgets and forecasts that show where the business is heading and what to adjust.</span></div></a><a href="#services" data-svc="book"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><div><strong>Virtual bookkeeping</strong><span>Transactions recorded, reconciled and closed on schedule in the tools you already use.</span></div></a><a href="#services" data-svc="fund"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.5v11M9 9.5c0-1.4 1.3-2 3-2s3 .7 3 2-1.3 1.8-3 2.2-3 .9-3 2.3 1.3 2 3 2 3-.7 3-2"/></svg><div><strong>Fundraising readiness</strong><span>The financial groundwork behind an equity or debt raise.</span></div></a><a href="#services" data-svc="cap"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6.4 6.4"/></svg><div><strong>Cap table management</strong><span>One accurate record of who owns what, through every round.</span></div></a><a href="#services" data-svc="feas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg><div><strong>Feasibility studies</strong><span>Demand, costs, returns and risks laid out before you invest.</span></div></a></div></div></section><section class="tax"><div class="wrap"><div class="tax-band"><div><h2>Tax season is calmer when the books are ready all year.</h2><p>With monthly bookkeeping and reconciliations in place, your year-end is a review, not a scramble.</p></div><a class="btn btn-primary" href="#contact">Get your books in order</a></div></div></section></div><div class="view" data-view="services" hidden><section class="page-head"><div class="wrap"><h1>Our services</h1><p>Choose a service to see what’s included. Combine as many as you like.</p></div></section><section class="services">
   <div class="wrap">
@@ -484,6 +457,7 @@ header .btn-primary:hover{background:#24574B}
     t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowDown'||k==='ArrowRight')n=tabs[(i+1)%tabs.length];if(k==='ArrowUp'||k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];if(n){e.preventDefault();select(n,true);}});
   });
 
+  var ol=document.querySelector('.o-logo'),hl=document.querySelector('header .brand img');if(ol&&hl)ol.src=hl.src;
   var h1=document.querySelector('.hero h1');
   if(h1){var ws=h1.textContent.trim().split(' ');h1.setAttribute('aria-label',h1.textContent.trim());h1.innerHTML=ws.map(function(w,i){return '<span class="w" aria-hidden="true" style="animation-delay:'+(0.08*i+0.1).toFixed(2)+'s">'+w+'</span>'}).join(' ');}
   var rvEls=[].slice.call(document.querySelectorAll('.mini a,.who-card,.tax-band,.contact dl,.contact form,.timeline li,.head2'));
