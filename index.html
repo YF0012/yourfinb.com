@@ -903,14 +903,14 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
       </dl>
       <div class="plane-wrap" aria-hidden="true"><svg viewBox="0 0 420 170"><path id="pp" class="plane-path" d="M20 140 C90 40 170 150 240 80 S360 30 380 60"/><rect class="inbox" x="352" y="56" width="56" height="40" rx="6"/><path d="M352 60 l28 20 l28 -20" fill="none" stroke="var(--leaf-deep)" stroke-width="2"/><g class="plane-anim"><g><path class="plane" d="M-14 -8 L16 0 L-14 8 L-8 0 Z"/><path class="plane-fold" d="M-8 0 L16 0 L-14 8 Z"/><animateMotion dur="5s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".5 0 .3 1"><mpath href="#pp"/></animateMotion></g></g></svg></div>
     </div>
-    <form id="enquiry" novalidate><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <form id="enquiry" novalidate>
       <div class="row2"><label>Your name<input name="name" autocomplete="name" required></label><label>Company<input name="company" autocomplete="organization"></label></div>
       <div class="row2"><label>Email<input type="email" name="email" autocomplete="email" required></label>
         <label>Service you need<select name="service"><option>Virtual CFO</option><option>FP&amp;A</option><option>Virtual bookkeeping</option><option>Fundraising readiness</option><option>Cap table management</option><option>Feasibility studies</option><option>Not sure yet</option></select></label></div>
       <label>How can we help?<textarea name="message"></textarea></label>
       <button class="btn btn-primary" type="submit">Send enquiry</button>
       <p class="form-msg" id="form-msg" role="status"></p>
-      <p class="form-note" id="form-note">This opens your email app with your enquiry addressed to info@yourfinb.com.</p>
+      <p class="form-note">This opens your email app with your enquiry addressed to info@yourfinb.com.</p>
     </form>
   </div>
 </section></div></main>
@@ -959,7 +959,7 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
       <textarea id="fb-text" rows="3" placeholder="Tell us what worked well or what we can improve"></textarea>
       <button type="button" class="btn fb-send" id="fb-send">Send feedback</button>
       <p class="fb-msg" id="fb-msg" role="status"></p>
-      <p class="fb-note" id="fb-note">Opens your email app, addressed to info@yourfinb.com.</p>
+      <p class="fb-note">Opens your email app, addressed to info@yourfinb.com.</p>
     </div>
   </div>
   <div class="wrap foot-bottom">
@@ -968,15 +968,6 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
 </footer>
 
 <script>
-/* Form service address, e.g. https://formspree.io/f/abcdwxyz . Leave empty to use the visitor's email app. */
-var FB_FORM_ENDPOINT='';
-function fbSend(data,mailSubject,mailBody,done){
-  function mail(){window.location.href='mailto:info@yourfinb.com?subject='+encodeURIComponent(mailSubject)+'&body='+encodeURIComponent(mailBody);done('mail')}
-  if(!FB_FORM_ENDPOINT||!window.fetch)return mail();
-  data._subject=mailSubject;
-  fetch(FB_FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-    .then(function(r){if(r.ok)done('sent');else mail()}).catch(mail);
-}
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
   function select(t,focus){
@@ -1010,14 +1001,9 @@ function fbSend(data,mailSubject,mailBody,done){
   document.getElementById('enquiry').addEventListener('submit',function(e){
     e.preventDefault();var f=e.target,m=document.getElementById('form-msg');
     if(!f.name.value.trim()||!f.email.value.trim()){m.textContent='Add your name and email so we can reply.';return;}
-    if(f._gotcha&&f._gotcha.value)return;
     var b='Name: '+f.name.value+'\nCompany: '+f.company.value+'\nEmail: '+f.email.value+'\nService: '+f.service.value+'\n\n'+f.message.value;
-    var btn=f.querySelector('button[type=submit]');btn.disabled=true;m.textContent='Sending…';
-    fbSend({form:'Enquiry',name:f.name.value,company:f.company.value,email:f.email.value,service:f.service.value,message:f.message.value},'Enquiry: '+f.service.value,b,function(how){
-      btn.disabled=false;
-      if(how==='sent'){m.textContent='Thank you! We have received your enquiry and will reply soon.';f.reset()}
-      else m.textContent='Your email app is opening with the enquiry ready to send.';
-    });
+    window.location.href='mailto:info@yourfinb.com?subject='+encodeURIComponent('Enquiry: '+f.service.value)+'&body='+encodeURIComponent(b);
+    m.textContent='Your email app is opening with the enquiry ready to send.';
   });
 })();
 
@@ -1100,12 +1086,8 @@ function fbSend(data,mailSubject,mailBody,done){
   send.addEventListener('click',function(){
     if(!rating&&!txt.value.trim()){msg.textContent='Choose a rating or write a few words first.';return}
     var subj='Website feedback'+(rating?' ('+rating+'/5)':''),body=(rating?'Rating: '+rating+' out of 5\n\n':'')+txt.value;
-    send.disabled=true;msg.textContent='Sending…';
-    fbSend({form:'Feedback',rating:rating||'',feedback:txt.value},subj,body,function(how){
-      send.disabled=false;
-      if(how==='sent'){msg.textContent='Thank you! Your feedback has been sent.';txt.value='';rating=0;paint(0)}
-      else msg.textContent='Thank you! Your email app is opening with your feedback.';
-    });
+    window.location.href='mailto:info@yourfinb.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+    msg.textContent='Thank you! Your email app is opening with your feedback.';
   });
 })();
 
@@ -1129,14 +1111,6 @@ function fbSend(data,mailSubject,mailBody,done){
   var logo=document.querySelector('header .brand img');if(logo)intro.querySelector('img').src=logo.src;
   var done=false;function hide(){if(done)return;done=true;intro.classList.add('out');setTimeout(function(){intro.remove()},450)}
   setTimeout(hide,1150);intro.addEventListener('click',hide);addEventListener('keydown',function(e){if(e.key==='Escape')hide()});
-})();
-
-(function(){
-  /* notes under the forms */
-  if(!FB_FORM_ENDPOINT)return;
-  var a=document.getElementById('form-note'),b=document.getElementById('fb-note');
-  if(a)a.textContent='Your details go straight to our team at info@yourfinb.com. We never share them.';
-  if(b)b.textContent='Sent straight to our team.';
 })();
 </script>
 </body>
