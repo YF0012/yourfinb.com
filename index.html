@@ -192,7 +192,7 @@ html{scroll-behavior:auto}
 .inbox{fill:var(--wash);stroke:var(--leaf-deep);stroke-width:2}
 @media (prefers-reduced-motion:reduce){.view:not([hidden]),.blobs i,.marquee-track,.hero h1 .w,.panel.show .ico.big *,.who-card.in .bl,.who-card.in .bg2,.timeline.in .runner{animation:none!important}.hero h1 .w{opacity:1;transform:none}.rv{opacity:1;transform:none;transition:none}.who-card .bl,.who-card .bg2{transform:none}.who-card .bd rect,.who-card rect.bd{opacity:1}.plane-anim{display:none}}
 .site-foot{background:var(--wash);border-top:4px solid var(--leaf);padding:64px 0 0;color:var(--muted);font-size:15px}
-.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr .8fr 1fr 1.5fr;gap:40px;align-items:start}
 .foot-brand .brand{display:inline-flex}
 .foot-brand .brand img{height:50px}
 .foot-brand p{margin:18px 0 14px;max-width:36ch}
@@ -490,6 +490,28 @@ header .btn-primary:hover{background:#24574B}
 @media (max-width:860px){.flow{grid-template-columns:1fr;gap:28px}.flow-line{left:44px;right:auto;top:46px;bottom:46px;width:4px;height:auto}.flow-line i{left:0;top:-12%;width:100%;height:12%;background:linear-gradient(180deg,transparent,var(--leaf-deep));animation-name:streamV}.flow-step{display:grid;grid-template-columns:92px 1fr;gap:18px;text-align:left;align-items:center;padding:0}.flow-ico{margin:0}.flow-tags{justify-content:flex-start}}
 @keyframes streamV{to{top:100%}}
 @media (prefers-reduced-motion:reduce){.k-fill,.k-needle,.k-bar,.k-line,.k-area{transition:none}.kpi .k-roadfill,.kpi .k-traveller,.kpi .k-paid,.yr-hand,.yr-sweep,.flow-line i,.flow-ico::after{animation:none!important}.k-roadfill{stroke-dashoffset:0}}
+/* footer feedback card */
+.site-foot .fb-card{position:relative;background:#1B4239;color:#F7F5F1;border-radius:20px;padding:26px;border:1px solid #1B4239;box-shadow:0 0 0 4px #C3F18A,0 24px 50px -24px rgba(27,66,57,.6);animation:fbGlow 3s ease-in-out infinite}
+@keyframes fbGlow{50%{box-shadow:0 0 0 7px rgba(195,241,138,.55),0 24px 50px -24px rgba(27,66,57,.6)}}
+.site-foot .fb-card h2{color:#F7F5F1;font-size:24px;margin:10px 0 6px}
+.site-foot .fb-card p{color:#D8E3DE;margin:0;font-size:15px}
+.fb-badge{display:inline-flex;align-items:center;gap:8px;font:600 11px "Public Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#1B4239;background:#C3F18A;border-radius:999px;padding:5px 12px}
+.fb-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:#1B4239;animation:pulse 2s infinite}
+.fb-stars{display:flex;gap:6px;margin:16px 0 14px}
+.fb-star{background:none;border:0;padding:2px;cursor:pointer;line-height:0}
+.fb-star svg{width:30px;height:30px;fill:transparent;stroke:#C3F18A;stroke-width:1.6;stroke-linejoin:round;transition:fill .15s,transform .15s}
+.fb-star:hover svg{transform:scale(1.15)}
+.fb-star.on svg{fill:#C3F18A}
+.fb-card textarea{width:100%;min-height:84px;resize:vertical;font:inherit;font-size:15px;color:#212121;background:#F7F5F1;border:2px solid transparent;border-radius:12px;padding:10px 12px}
+.fb-card textarea:focus{outline:none;border-color:#C3F18A}
+.fb-send{margin-top:12px;width:100%;background:#C3F18A;color:#1B4239}
+.fb-send:hover{background:#D6F7AE}
+.site-foot .fb-card .fb-msg{color:#C3F18A;font-weight:600;min-height:1.3em;margin-top:10px;font-size:14px}
+.site-foot .fb-card .fb-note{font-size:12px;color:#A9BDB5}
+@media (max-width:1200px){.foot-grid{grid-template-columns:1fr 1fr 1fr}.foot-brand,.fb-card{grid-column:1/-1}.site-foot .fb-card{max-width:620px}}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.site-foot .fb-card,.fb-badge::before{animation:none}}
 </style>
 </head>
 <body>
@@ -643,6 +665,17 @@ header .btn-primary:hover{background:#24574B}
         <li><a href="https://www.yourfinb.com">www.yourfinb.com</a></li>
       </ul>
     </div>
+    <div class="foot-col fb-card" id="feedback">
+      <span class="fb-badge">We’re listening</span>
+      <h2>Share your feedback</h2>
+      <p>How was your experience with Your FinB or this website?</p>
+      <div class="fb-stars" role="group" aria-label="Rate your experience"><button type="button" class="fb-star" data-v="1" aria-label="1 out of 5" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.5 6 .9-4.35 4.25 1 6L12 17l-5.35 2.85 1-6L3.3 9.6l6-.9z"/></svg></button><button type="button" class="fb-star" data-v="2" aria-label="2 out of 5" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.5 6 .9-4.35 4.25 1 6L12 17l-5.35 2.85 1-6L3.3 9.6l6-.9z"/></svg></button><button type="button" class="fb-star" data-v="3" aria-label="3 out of 5" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.5 6 .9-4.35 4.25 1 6L12 17l-5.35 2.85 1-6L3.3 9.6l6-.9z"/></svg></button><button type="button" class="fb-star" data-v="4" aria-label="4 out of 5" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.5 6 .9-4.35 4.25 1 6L12 17l-5.35 2.85 1-6L3.3 9.6l6-.9z"/></svg></button><button type="button" class="fb-star" data-v="5" aria-label="5 out of 5" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.5 6 .9-4.35 4.25 1 6L12 17l-5.35 2.85 1-6L3.3 9.6l6-.9z"/></svg></button></div>
+      <label class="sr" for="fb-text">Your feedback</label>
+      <textarea id="fb-text" rows="3" placeholder="Tell us what worked well or what we can improve"></textarea>
+      <button type="button" class="btn fb-send" id="fb-send">Send feedback</button>
+      <p class="fb-msg" id="fb-msg" role="status"></p>
+      <p class="fb-note">Opens your email app, addressed to info@yourfinb.com.</p>
+    </div>
   </div>
   <div class="wrap foot-bottom">
     <p>© 2026 Your FinB. All rights reserved.</p>
@@ -755,6 +788,23 @@ header .btn-primary:hover{background:#24574B}
   }
   btns.forEach(function(b){b.addEventListener('click',function(){cat=b.dataset.cat;btns.forEach(function(x){x.setAttribute('aria-pressed',x===b)});apply()})});
   q.addEventListener('input',apply);
+})();
+
+(function(){
+  /* footer feedback */
+  var stars=[].slice.call(document.querySelectorAll('.fb-star')),send=document.getElementById('fb-send');if(!send)return;
+  var txt=document.getElementById('fb-text'),msg=document.getElementById('fb-msg'),rating=0;
+  function paint(n){stars.forEach(function(s,i){s.classList.toggle('on',i<n)})}
+  stars.forEach(function(s,i){
+    s.addEventListener('click',function(){rating=i+1;paint(rating);stars.forEach(function(x,j){x.setAttribute('aria-pressed',j===i)});msg.textContent=''});
+    s.addEventListener('mouseenter',function(){paint(i+1)});s.addEventListener('mouseleave',function(){paint(rating)});
+  });
+  send.addEventListener('click',function(){
+    if(!rating&&!txt.value.trim()){msg.textContent='Choose a rating or write a few words first.';return}
+    var subj='Website feedback'+(rating?' ('+rating+'/5)':''),body=(rating?'Rating: '+rating+' out of 5\n\n':'')+txt.value;
+    window.location.href='mailto:info@yourfinb.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+    msg.textContent='Thank you! Your email app is opening with your feedback.';
+  });
 })();
 </script>
 </body>
