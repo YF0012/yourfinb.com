@@ -396,6 +396,100 @@ header .btn-primary:hover{background:#24574B}
 .faq-group h2{font-size:clamp(26px,2.6vw,34px);margin-bottom:16px}
 .faq-empty{color:var(--muted)}.faq-empty a{color:var(--leaf-deep)}
 @media (max-width:900px){.faq-layout{grid-template-columns:1fr;gap:28px}.faq-side{position:static}.faq-cats{display:flex;flex-wrap:wrap}.faq-cats button{padding:8px 14px;border-color:var(--line);background:var(--card)}.faq-cats span{margin-left:8px}.faq-help{display:none}}
+/* ---------- KPI cards ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 14px 36px rgba(27,66,57,.08)}
+.kpi svg{display:block;width:100%;height:110px;margin-bottom:16px;overflow:visible}
+.kpi h3{font-size:24px;margin-bottom:6px}
+.kpi p{margin:0;color:var(--muted);font-size:15px}
+.kpi .why{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--ink)}
+.kpi .why b{color:var(--leaf-deep)}
+.k-track{fill:none;stroke:var(--wash);stroke-linecap:round}
+.k-fill{fill:none;stroke:var(--leaf-deep);stroke-linecap:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1) .2s}
+.kpi.in .k-fill{stroke-dashoffset:var(--to)}
+.k-needle{transform-box:view-box;transform-origin:100px 100px;transform:rotate(-90deg);transition:transform 1.6s cubic-bezier(.2,.8,.2,1) .2s}
+.kpi.in .k-needle{transform:rotate(36deg)}
+.k-needle line{stroke:var(--forest);stroke-width:4;stroke-linecap:round}
+.k-needle circle{fill:var(--forest)}
+.k-big{font:700 26px "Saira Semi Condensed",sans-serif;fill:var(--forest)}
+.k-small{font:600 12px "Public Sans",sans-serif;fill:var(--muted)}
+.k-bar{fill:color-mix(in srgb,var(--leaf-deep) 22%,#fff);transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.k-bar.hi{fill:var(--leaf)}
+.k-bar.dk{fill:var(--leaf-deep)}
+.k-bar.ol{fill:none;stroke:var(--leaf-deep);stroke-width:1.5;stroke-dasharray:4 3}
+.kpi.in .k-bar{transform:scaleY(1)}
+.k-line{fill:none;stroke:var(--forest);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1.8s ease-out .2s}
+.kpi.in .k-line{stroke-dashoffset:0}
+.k-area{fill:color-mix(in srgb,var(--leaf) 45%,transparent);opacity:0;transition:opacity .8s 1.2s}
+.kpi.in .k-area{opacity:1}
+.k-base{stroke:var(--line);stroke-width:1.5}
+.k-road{stroke:var(--line);stroke-width:4;stroke-linecap:round}
+.k-roadfill{stroke:var(--leaf-deep);stroke-width:4;stroke-linecap:round;stroke-dasharray:220;stroke-dashoffset:220}
+.kpi.in .k-roadfill{animation:road 4s .3s ease-in-out infinite}
+.k-traveller{fill:var(--leaf);stroke:var(--forest);stroke-width:2}
+.kpi.in .k-traveller{animation:travel 4s .3s ease-in-out infinite}
+@keyframes road{0%{stroke-dashoffset:220}70%,100%{stroke-dashoffset:0}}
+@keyframes travel{0%{transform:translateX(0)}70%,100%{transform:translateX(220px)}}
+.k-node{fill:var(--card);stroke:var(--line);stroke-width:2}
+.k-paid{fill:var(--forest);opacity:.25}
+.kpi.in .k-paid{animation:paid 4s .3s infinite}
+@keyframes paid{0%,62%{opacity:.25}72%,92%{opacity:1}100%{opacity:.25}}
+.k-tick{fill:none;stroke:var(--on-forest);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:1000px){.kpi-grid{grid-template-columns:1fr 1fr}}@media (max-width:600px){.kpi-grid{grid-template-columns:1fr}}
+
+/* ---------- finance year ring ---------- */
+.year-wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:center}
+.ring-box{position:relative;max-width:460px;width:100%;margin:0 auto}
+.ring-box svg{display:block;width:100%;height:auto;overflow:visible}
+.yr-track{fill:none;stroke:var(--line);stroke-width:2}
+.yr-band{fill:none;stroke:color-mix(in srgb,var(--leaf) 65%,transparent);stroke-width:22;stroke-linecap:round}
+.yr-band.ye{stroke:color-mix(in srgb,var(--leaf-deep) 35%,transparent)}
+.yr-m{fill:var(--card);stroke:var(--leaf-deep);stroke-width:2}
+.yr-q{fill:var(--forest)}
+.yr-lbl{font:600 13px "Public Sans",sans-serif;fill:var(--muted);text-anchor:middle;dominant-baseline:middle}
+.yr-hand{transform-origin:200px 200px;animation:spin 12s linear infinite}
+.yr-hand line{stroke:var(--forest);stroke-width:3;stroke-linecap:round}
+.yr-hand circle{fill:var(--leaf);stroke:var(--forest);stroke-width:3}
+.yr-sweep{transform-origin:200px 200px;animation:spin 12s linear infinite}
+.yr-core{fill:var(--card);stroke:var(--line)}
+.yr-c1{font:700 30px "Saira Semi Condensed",sans-serif;fill:var(--forest);text-anchor:middle}
+.yr-c2{font:600 12px "Public Sans",sans-serif;letter-spacing:.12em;fill:var(--leaf-deep);text-anchor:middle;text-transform:uppercase}
+.yr-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.yr-list li{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.yr-key{width:44px;height:44px;border-radius:50%;display:grid;place-items:center}
+.yr-key.k1{background:var(--card);border:3px solid var(--leaf-deep)}
+.yr-key.k2{background:var(--forest)}
+.yr-key.k3{background:color-mix(in srgb,var(--leaf) 65%,#fff)}
+.yr-key.k4{background:color-mix(in srgb,var(--leaf-deep) 35%,#fff)}
+.yr-key i{width:10px;height:10px;border-radius:50%;background:var(--leaf-deep)}
+.yr-key.k2 i{background:var(--leaf)}
+.yr-key.k3 i,.yr-key.k4 i{background:var(--forest)}
+.yr-list h3{font-size:21px;margin-bottom:4px}
+.yr-list p{margin:0;color:var(--muted);font-size:15px}
+.yr-note{font-size:13px;color:var(--muted);margin:14px 0 0}
+@media (max-width:900px){.year-wrap{grid-template-columns:1fr;gap:32px}}
+
+/* ---------- data flow (How we work) ---------- */
+.flow{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:8px}
+.flow-line{position:absolute;left:12.5%;right:12.5%;top:44px;height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+.flow-line i{position:absolute;top:0;left:-12%;width:12%;height:100%;border-radius:4px;background:linear-gradient(90deg,transparent,var(--leaf-deep));animation:stream 2.8s linear infinite}
+.flow-line i:nth-child(2){animation-delay:.93s}.flow-line i:nth-child(3){animation-delay:1.86s}
+@keyframes stream{to{left:100%}}
+.flow-step{position:relative;text-align:center;padding:0 8px}
+.flow-ico{width:92px;height:92px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);box-shadow:0 14px 30px -14px rgba(27,66,57,.45);position:relative}
+.flow-ico svg{width:40px;height:40px;fill:none;stroke:var(--leaf-deep);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.flow-step:last-child .flow-ico{background:var(--forest)}
+.flow-step:last-child .flow-ico svg{stroke:var(--leaf)}
+.flow-ico::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--leaf);opacity:0;animation:flowRing 2.8s ease-out infinite}
+@keyframes flowRing{from{transform:scale(.95);opacity:.9}to{transform:scale(1.35);opacity:0}}
+.flow-step:nth-child(3) .flow-ico::after{animation-delay:.7s}.flow-step:nth-child(4) .flow-ico::after{animation-delay:1.4s}.flow-step:nth-child(5) .flow-ico::after{animation-delay:2.1s}
+.flow-step h3{font-size:23px;margin-bottom:6px}
+.flow-step p{margin:0;color:var(--muted);font-size:15px}
+.flow-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:12px}
+.flow-tags span{font-size:12px;font-weight:600;color:var(--forest);background:color-mix(in srgb,var(--leaf) 45%,#fff);border-radius:999px;padding:4px 10px}
+@media (max-width:860px){.flow{grid-template-columns:1fr;gap:28px}.flow-line{left:44px;right:auto;top:46px;bottom:46px;width:4px;height:auto}.flow-line i{left:0;top:-12%;width:100%;height:12%;background:linear-gradient(180deg,transparent,var(--leaf-deep));animation-name:streamV}.flow-step{display:grid;grid-template-columns:92px 1fr;gap:18px;text-align:left;align-items:center;padding:0}.flow-ico{margin:0}.flow-tags{justify-content:flex-start}}
+@keyframes streamV{to{top:100%}}
+@media (prefers-reduced-motion:reduce){.k-fill,.k-needle,.k-bar,.k-line,.k-area{transition:none}.kpi .k-roadfill,.kpi .k-traveller,.kpi .k-paid,.yr-hand,.yr-sweep,.flow-line i,.flow-ico::after{animation:none!important}.k-roadfill{stroke-dashoffset:0}}
 </style>
 </head>
 <body>
@@ -429,7 +523,7 @@ header .btn-primary:hover{background:#24574B}
   </div>
 </section><div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Virtual CFO</span><span>FP&amp;A</span><span>Virtual bookkeeping</span><span>Fundraising readiness</span><span>Cap table management</span><span>Feasibility studies</span><span>Virtual CFO</span><span>FP&amp;A</span><span>Virtual bookkeeping</span><span>Fundraising readiness</span><span>Cap table management</span><span>Feasibility studies</span></div></div><section class="teaser"><div class="wrap"><div class="head2"><h2>What we do</h2><p>Six ways we support your finance function. Open one to see what’s included.</p></div><div class="mini"><a href="#services" data-svc="cfo"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><div><strong>Virtual CFO</strong><span>A senior finance partner for your leadership team, part-time and on demand.</span></div></a><a href="#services" data-svc="fpa"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><div><strong>FP&amp;A</strong><span>Budgets and forecasts that show where the business is heading and what to adjust.</span></div></a><a href="#services" data-svc="book"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><div><strong>Virtual bookkeeping</strong><span>Transactions recorded, reconciled and closed on schedule in the tools you already use.</span></div></a><a href="#services" data-svc="fund"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.5v11M9 9.5c0-1.4 1.3-2 3-2s3 .7 3 2-1.3 1.8-3 2.2-3 .9-3 2.3 1.3 2 3 2 3-.7 3-2"/></svg><div><strong>Fundraising readiness</strong><span>The financial groundwork behind an equity or debt raise.</span></div></a><a href="#services" data-svc="cap"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6.4 6.4"/></svg><div><strong>Cap table management</strong><span>One accurate record of who owns what, through every round.</span></div></a><a href="#services" data-svc="feas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg><div><strong>Feasibility studies</strong><span>Demand, costs, returns and risks laid out before you invest.</span></div></a></div></div></section><section class="signs"><div class="wrap"><div class="head2"><h2>Signs it’s time for a finance partner</h2><p>If two or more of these sound familiar, your business has likely outgrown do-it-yourself finance.</p></div>
 <div class="sg-grid"><div class="sign"><svg class="sg-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><h3>You check the bank app to know where you stand</h3><p>Cash decisions are made from a balance, not a forecast.</p></div><div class="sign"><svg class="sg-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><h3>Month-end takes weeks, or never quite happens</h3><p>Books are always a few months behind the business.</p></div><div class="sign"><svg class="sg-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><h3>Investors or lenders are asking for numbers</h3><p>And pulling them together takes days each time.</p></div><div class="sign"><svg class="sg-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><h3>You are hiring or expanding</h3><p>But are not sure what the business can really afford.</p></div><div class="sign"><svg class="sg-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><h3>Your accountant only appears at tax time</h3><p>Nobody is looking at the numbers during the year.</p></div><div class="sign"><svg class="sg-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><h3>Your spreadsheets disagree with each other</h3><p>Different versions of the truth slow every decision.</p></div></div></div></section>
-<section class="calc-sec"><div class="wrap"><div class="head2"><h2>How long will your cash last?</h2><p>A quick runway check. Enter rough monthly figures to see how many months your cash covers.</p></div>
+<section class="kpis"><div class="wrap"><div class="head2"><h2>The numbers we keep an eye on</h2><p>Six measures that show how healthy your business really is, explained in plain English. Figures in the graphics are examples.</p></div><div class="kpi-grid"><div class="kpi"><svg viewBox="0 0 200 124" aria-hidden="true"><path class="k-track" d="M20 100 A80 80 0 0 1 180 100" stroke-width="16"/><path class="k-fill" d="M20 100 A80 80 0 0 1 180 100" stroke-width="16" style="--len:251.3;--to:75.4"/><g class="k-needle"><line x1="100" y1="100" x2="100" y2="38"/><circle cx="100" cy="100" r="8"/></g><text class="k-small" x="20" y="124" text-anchor="middle">0</text><text class="k-small" x="180" y="124" text-anchor="middle">24 months</text></svg><h3>Cash runway</h3><p>How many months your cash will last at today’s spending.</p><p class="why"><b>Why it matters:</b> It tells you when to raise, cut or invest, before it is urgent.</p></div><div class="kpi"><svg viewBox="0 0 200 112" aria-hidden="true"><circle class="k-track" cx="100" cy="56" r="44" stroke-width="14"/><circle class="k-fill" cx="100" cy="56" r="44" stroke-width="14" transform="rotate(-90 100 56)" style="--len:276.5;--to:105"/><text class="k-big" x="100" y="57" text-anchor="middle" dominant-baseline="middle">62%</text></svg><h3>Gross margin</h3><p>What you keep from each sale after direct costs.</p><p class="why"><b>Why it matters:</b> It shows whether growth is actually making you money.</p></div><div class="kpi"><svg viewBox="0 0 200 112" aria-hidden="true"><line class="k-base" x1="8" y1="104" x2="192" y2="104"/><rect class="k-bar" x="16" y="18" width="20" height="86" rx="3" style="transition-delay:0.15s"/><rect class="k-bar" x="46" y="26" width="20" height="78" rx="3" style="transition-delay:0.25s"/><rect class="k-bar" x="76" y="34" width="20" height="70" rx="3" style="transition-delay:0.35s"/><rect class="k-bar" x="106" y="44" width="20" height="60" rx="3" style="transition-delay:0.45s"/><rect class="k-bar" x="136" y="52" width="20" height="52" rx="3" style="transition-delay:0.55s"/><rect class="k-bar hi" x="166" y="60" width="20" height="44" rx="3" style="transition-delay:0.65s"/></svg><h3>Burn rate</h3><p>How much cash the business uses each month.</p><p class="why"><b>Why it matters:</b> Small savings here add months to your runway.</p></div><div class="kpi"><svg viewBox="0 0 200 112" aria-hidden="true"><line class="k-base" x1="8" y1="104" x2="192" y2="104"/><path class="k-area" d="M10 92 L42 84 L74 86 L106 66 L138 58 L170 38 L192 22 L192 104 L10 104 Z"/><path class="k-line" d="M10 92 L42 84 L74 86 L106 66 L138 58 L170 38 L192 22"/><circle cx="192" cy="22" r="5" fill="var(--forest)"/></svg><h3>Revenue growth</h3><p>How fast sales are rising, month by month.</p><p class="why"><b>Why it matters:</b> Investors and lenders look here first.</p></div><div class="kpi"><svg viewBox="0 0 260 112" aria-hidden="true"><line class="k-road" x1="20" y1="50" x2="240" y2="50"/><line class="k-roadfill" x1="20" y1="50" x2="240" y2="50"/><rect class="k-node" x="6" y="30" width="28" height="36" rx="4"/><path d="M13 41h14M13 48h14M13 55h9" stroke="var(--leaf-deep)" stroke-width="2" stroke-linecap="round"/><circle class="k-paid" cx="240" cy="50" r="18"/><path class="k-tick" d="M232 50l6 6 10-11"/><circle class="k-traveller" cx="20" cy="50" r="8"/><text class="k-small" x="20" y="96" text-anchor="middle">Invoice sent</text><text class="k-small" x="240" y="96" text-anchor="middle">Cash in</text></svg><h3>Days to get paid</h3><p>The time between sending an invoice and cash arriving.</p><p class="why"><b>Why it matters:</b> Faster collection frees up cash without new funding.</p></div><div class="kpi"><svg viewBox="0 0 200 112" aria-hidden="true"><line class="k-base" x1="8" y1="104" x2="192" y2="104"/><rect class="k-bar ol" x="20" y="34" width="18" height="70" rx="3" style="transition-delay:0.15s"/><rect class="k-bar dk" x="40" y="42" width="18" height="62" rx="3" style="transition-delay:0.25s"/><rect class="k-bar ol" x="66" y="28" width="18" height="76" rx="3" style="transition-delay:0.27s"/><rect class="k-bar dk" x="86" y="24" width="18" height="80" rx="3" style="transition-delay:0.37s"/><rect class="k-bar ol" x="112" y="32" width="18" height="72" rx="3" style="transition-delay:0.39s"/><rect class="k-bar dk" x="132" y="36" width="18" height="68" rx="3" style="transition-delay:0.49s"/><rect class="k-bar ol" x="158" y="24" width="18" height="80" rx="3" style="transition-delay:0.51s"/><rect class="k-bar dk" x="178" y="30" width="18" height="74" rx="3" style="transition-delay:0.61s"/></svg><h3>Budget vs actual</h3><p>Where you landed against the plan.</p><p class="why"><b>Why it matters:</b> Spot overspending early and adjust the forecast.</p></div></div></div></section><section class="calc-sec"><div class="wrap"><div class="head2"><h2>How long will your cash last?</h2><p>A quick runway check. Enter rough monthly figures to see how many months your cash covers.</p></div>
 <div class="calc">
   <form class="calc-in" id="runway" onsubmit="return false">
     <label>Cash in the bank<span class="money"><i>$</i><input id="rw-cash" inputmode="numeric" value="250,000"></span></label>
@@ -446,7 +540,14 @@ header .btn-primary:hover{background:#24574B}
     <p class="co-axis"><span>Today</span><span>12 months</span><span>24 months</span></p>
   </div>
 </div></div></section>
-<section class="tz"><div class="wrap"><div class="head2"><h2>Supporting businesses worldwide</h2><p>From our office in Sheridan, Wyoming, we work remotely with clients across North America, Europe, the Middle East, Asia and Australia, and agree a meeting rhythm that suits both sides.</p></div>
+<section class="year"><div class="wrap"><div class="head2"><h2>A year of finance, made simple</h2><p>What happens when, so deadlines and decisions never sneak up on you.</p></div>
+<div class="year-wrap"><div class="ring-box"><svg viewBox="0 0 400 400" role="img" aria-label="A 12-month ring: monthly close every month, quarterly reviews in March, June, September and December, budget planning in October and November, and year-end in December and January"><path class="yr-sweep" d="M200 200 L200 50 A150 150 0 0 1 275 70.1 Z" fill="color-mix(in srgb,var(--leaf) 35%,transparent)"/><circle class="yr-track" cx="200" cy="200" r="150"/><path class="yr-band" d="M50.4 189.5 A150 150 0 0 1 116.1 75.6"/><path class="yr-band ye" d="M134.2 65.2 A150 150 0 0 1 265.8 65.2"/><circle class="yr-m" cx="238.8" cy="55.1" r="6"/><text class="yr-lbl" x="248.1" y="20.3">Jan</text><circle class="yr-m" cx="306.1" cy="93.9" r="6"/><text class="yr-lbl" x="331.5" y="68.5">Feb</text><circle class="yr-q" cx="344.9" cy="161.2" r="10"/><text class="yr-lbl" x="379.7" y="151.9">Mar</text><circle class="yr-m" cx="344.9" cy="238.8" r="6"/><text class="yr-lbl" x="379.7" y="248.1">Apr</text><circle class="yr-m" cx="306.1" cy="306.1" r="6"/><text class="yr-lbl" x="331.5" y="331.5">May</text><circle class="yr-q" cx="238.8" cy="344.9" r="10"/><text class="yr-lbl" x="248.1" y="379.7">Jun</text><circle class="yr-m" cx="161.2" cy="344.9" r="6"/><text class="yr-lbl" x="151.9" y="379.7">Jul</text><circle class="yr-m" cx="93.9" cy="306.1" r="6"/><text class="yr-lbl" x="68.5" y="331.5">Aug</text><circle class="yr-q" cx="55.1" cy="238.8" r="10"/><text class="yr-lbl" x="20.3" y="248.1">Sep</text><circle class="yr-m" cx="55.1" cy="161.2" r="6"/><text class="yr-lbl" x="20.3" y="151.9">Oct</text><circle class="yr-m" cx="93.9" cy="93.9" r="6"/><text class="yr-lbl" x="68.5" y="68.5">Nov</text><circle class="yr-q" cx="161.2" cy="55.1" r="10"/><text class="yr-lbl" x="151.9" y="20.3">Dec</text><g class="yr-hand"><line x1="200" y1="200" x2="200" y2="96"/><circle cx="200" cy="96" r="7"/></g><circle class="yr-core" cx="200" cy="200" r="78"/><text class="yr-c1" x="200" y="200">12 months</text><text class="yr-c2" x="200" y="226">One rhythm</text></svg></div>
+<div><ul class="yr-list">
+<li><span class="yr-key k1"><i></i></span><div><h3>Every month</h3><p>Books closed and reconciled, with a management report on your results and cash.</p></div></li>
+<li><span class="yr-key k2"><i></i></span><div><h3>Every quarter</h3><p>Forecast refreshed and a review of progress, cash and priorities.</p></div></li>
+<li><span class="yr-key k3"><i></i></span><div><h3>Before the year starts</h3><p>Next year’s budget built with you, so targets are clear from day one.</p></div></li>
+<li><span class="yr-key k4"><i></i></span><div><h3>Year-end</h3><p>Clean, reconciled books ready for your tax adviser and annual accounts.</p></div></li>
+</ul><p class="yr-note">Shown for a calendar year. We follow your own financial year.</p></div></div></div></section><section class="tz"><div class="wrap"><div class="head2"><h2>Supporting businesses worldwide</h2><p>From our office in Sheridan, Wyoming, we work remotely with clients across North America, Europe, the Middle East, Asia and Australia, and agree a meeting rhythm that suits both sides.</p></div>
 <div class="tz-wrap"><canvas id="tzmap" role="img" aria-label="World map with lines from our Sheridan, Wyoming office to regions we support around the world"></canvas>
 <ul class="clocks" id="tzclocks"></ul></div></div></section>
 <section class="tax"><div class="wrap"><div class="tax-band"><div><h2>Tax season is calmer when the books are ready all year.</h2><p>With monthly bookkeeping and reconciliations in place, your year-end is a review, not a scramble.</p></div><a class="btn btn-primary" href="#contact">Get your books in order</a></div></div></section></div><div class="view" data-view="services" hidden><section class="page-head"><div class="wrap"><h1>Our services</h1><p>Choose a service to see what’s included. Combine as many as you like.</p></div></section><section class="services">
@@ -468,7 +569,7 @@ header .btn-primary:hover{background:#24574B}
       <li><span class="num">4</span><h3>Ongoing advice</h3><p>Regular reviews on cash, budgets and growth plans with your finance lead.</p></li>
     </ol>
   </div>
-</section><section class="tax"><div class="wrap"><div class="tax-band"><div><h2>Ready to talk about your numbers?</h2><p>Tell us where you are today and what you need. We’ll reply with a simple plan.</p></div><a class="btn btn-primary" href="#contact">Contact us</a></div></div></section></div><div class="view" data-view="who" hidden><section class="page-head"><div class="wrap"><h1>Who we help</h1><p>The same care at every stage, from first round to multinational group.</p></div></section><section class="who">
+</section><section class="flow-sec"><div class="wrap"><div class="head2"><h2>From transactions to decisions</h2><p>How your raw data becomes numbers you can act on.</p></div><div class="flow"><div class="flow-line" aria-hidden="true"><i></i><i></i><i></i></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3z"/><path d="M3 11h18M7 15h4"/></svg></div><div><h3>Transactions</h3><p>Everything that moves money in your business.</p><div class="flow-tags"><span>Bank</span><span>Cards</span><span>Invoices</span><span>Payroll</span></div></div></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 13l2 2 4-4.5"/></svg></div><div><h3>Clean books</h3><p>Recorded, matched and checked every month.</p><div class="flow-tags"><span>Categorised</span><span>Reconciled</span></div></div></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><div><h3>Reports and forecasts</h3><p>Clear monthly reports and a forward-looking forecast.</p><div class="flow-tags"><span>P&amp;L</span><span>Cash flow</span><span>KPIs</span></div></div></div><div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><div><h3>Better decisions</h3><p>Confident choices on hiring, spending and growth.</p><div class="flow-tags"><span>Hiring</span><span>Pricing</span><span>Funding</span></div></div></div></div></div></section><section class="tax"><div class="wrap"><div class="tax-band"><div><h2>Ready to talk about your numbers?</h2><p>Tell us where you are today and what you need. We’ll reply with a simple plan.</p></div><a class="btn btn-primary" href="#contact">Contact us</a></div></div></section></div><div class="view" data-view="who" hidden><section class="page-head"><div class="wrap"><h1>Who we help</h1><p>The same care at every stage, from first round to multinational group.</p></div></section><section class="who">
   <div class="wrap">
     
     <div class="who-grid">
@@ -564,7 +665,7 @@ header .btn-primary:hover{background:#24574B}
   var ol=document.querySelector('.o-logo'),hl=document.querySelector('header .brand img');if(ol&&hl)ol.src=hl.src;
   var h1=document.querySelector('.hero h1');
   if(h1){var ws=h1.textContent.trim().split(' ');h1.setAttribute('aria-label',h1.textContent.trim());h1.innerHTML=ws.map(function(w,i){return '<span class="w" aria-hidden="true" style="animation-delay:'+(0.08*i+0.1).toFixed(2)+'s">'+w+'</span>'}).join(' ');}
-  var rvEls=[].slice.call(document.querySelectorAll('.mini a,.who-card,.tax-band,.contact dl,.contact form,.timeline li,.head2,.sign,.calc,.tz-wrap,.faq details'));
+  var rvEls=[].slice.call(document.querySelectorAll('.mini a,.who-card,.tax-band,.contact dl,.contact form,.timeline li,.head2,.sign,.calc,.tz-wrap,.faq details,.kpi,.yr-list li,.flow-step'));
   rvEls.forEach(function(el){el.classList.add('rv');var sib=[].slice.call(el.parentNode.children).filter(function(c){return c.tagName===el.tagName});el.style.transitionDelay=(Math.max(0,sib.indexOf(el))*0.09).toFixed(2)+'s'});
   if('IntersectionObserver' in window){var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}})},{threshold:.18});rvEls.forEach(function(el){ro.observe(el)});}else rvEls.forEach(function(el){el.classList.add('in')});
   var tl=document.getElementById('timeline');
