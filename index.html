@@ -238,7 +238,7 @@ header{background:color-mix(in srgb,var(--bg) 78%,transparent)}
 .globe-wrap .map-note{top:12%;left:0}
 .globe-wrap .map-cap{text-align:center}
 [hidden]{display:none!important}
-#earth{width:100%;max-width:660px;aspect-ratio:1/1;margin:0 auto;cursor:grab;touch-action:pan-y;filter:drop-shadow(0 34px 46px rgba(0,0,0,.45)) drop-shadow(0 8px 14px rgba(0,0,0,.25))}
+#earth{width:100%;max-width:660px;aspect-ratio:1/1;margin:0 auto;cursor:grab;touch-action:pan-y;filter:drop-shadow(0 28px 40px rgba(6,64,42,.22)) drop-shadow(0 6px 12px rgba(6,64,42,.12))}
 #earth:active{cursor:grabbing}
 #earth canvas{display:block;width:100%!important;height:100%!important}
 
@@ -253,31 +253,31 @@ header{background:color-mix(in srgb,var(--bg) 78%,transparent)}
 .clocks b{display:block;font:600 14px "Public Sans",sans-serif;color:var(--muted)}
 .clocks time{font:600 26px "Saira Semi Condensed",sans-serif;color:var(--ink);font-variant-numeric:tabular-nums}
 .clocks span{font-size:13px;color:var(--muted);margin-left:6px}
-/* whole-site dark green theme */
-:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{--bg:#0A3826;--wash:#0E4530;--ink:#F1FAF3;--muted:#B4D2C0;--line:#1E5C42;--card:#0F4A33;--forest:#90EE90;--on-forest:#06402A;--leaf:#90EE90;--leaf-deep:#8FE3A6;--dot:#2C6E4E;--logo-pill:#FFFFFF;color-scheme:dark}
+/* whole-site light theme: white and mint, dark green text and buttons */
+:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{--bg:#FFFFFF;--wash:#F1F8F3;--ink:#0F2A1E;--muted:#4F6359;--line:#D9E8DE;--card:#FFFFFF;--forest:#06402A;--on-forest:#F3FBF5;--leaf:#90EE90;--leaf-deep:#2E8B57;--dot:#B9D7C2;--logo-pill:transparent;color-scheme:light}
 .bg-motion i{opacity:.35}
-.btn-primary:hover{background:#B4F5B4}
+.btn-primary:hover{background:#0A5236}
 .site-foot{background:linear-gradient(180deg,#083020,#062818)!important;border-top-color:var(--leaf)}
 /* match all boxes to the service panel style */
 .tab{background:color-mix(in srgb,var(--card) 45%,transparent);border:1px solid color-mix(in srgb,var(--line) 70%,transparent);color:var(--ink)}
 .tab:hover{background:color-mix(in srgb,var(--card) 75%,transparent)}
 .tab[aria-selected="true"]{background:color-mix(in srgb,var(--card) 92%,transparent);border-color:var(--line)}
-.tab .ico,.tab[aria-selected="true"] .ico{stroke:var(--leaf)}
+.tab .ico,.tab[aria-selected="true"] .ico{stroke:var(--leaf-deep)}
 .tax-band,.who-card,.mini a,.month,.map-note,form,.clocks li{background:color-mix(in srgb,var(--card) 88%,transparent)!important;border:1px solid var(--line)}
-.tab[aria-selected="true"],.panel,.who-card,.mini a,.tax-band,form,.map-note{box-shadow:0 18px 40px rgba(0,0,0,.28),0 2px 6px rgba(0,0,0,.18)}
-.inc li::before{box-shadow:inset 0 0 0 5px var(--card),inset 0 0 0 7px var(--leaf)}
+.tab[aria-selected="true"],.panel,.who-card,.mini a,.tax-band,form,.map-note{box-shadow:0 14px 36px rgba(6,64,42,.10),0 2px 6px rgba(6,64,42,.06)}
+.inc li::before{box-shadow:inset 0 0 0 5px var(--card),inset 0 0 0 7px var(--leaf-deep)}
 /* header and footer: white and light mint, contrasting with the dark green page */
 header,.site-foot{--ink:#0B2A1E;--muted:#3E5A4C;--line:#D3E6D8;--logo-pill:transparent;--forest:#06402A;--on-forest:#F3FBF5;--leaf-deep:#2E8B57;--card:#FFFFFF;color:var(--ink)}
-header{background:color-mix(in srgb,#FFFFFF 96%,transparent)!important;border-bottom:3px solid #90EE90;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+header{background:color-mix(in srgb,#FFFFFF 96%,transparent)!important;border-bottom:3px solid #90EE90;box-shadow:0 6px 20px rgba(6,64,42,.08)}
 .site-foot{background:linear-gradient(160deg,#FFFFFF,#E6F7EA 60%,#D4F0DB)!important;border-top:4px solid #90EE90;box-shadow:none}
 .site-foot .foot-bottom{border-top-color:#C7E3CF}
 .site-foot .foot-col a,.site-foot p{color:var(--muted)}
 .site-foot .foot-col a:hover{color:var(--forest)}
 .site-foot address,.site-foot h2{color:var(--ink)}
-.btn-primary:hover{background:#B4F5B4}
+.btn-primary:hover{background:#0A5236}
 header .btn-primary:hover{background:#0A5236}
 /* contact form in white and mint */
-.contact form{--ink:#0B2A1E;--muted:#3E5A4C;--line:#CFE5D6;--forest:#06402A;--on-forest:#F3FBF5;--leaf-deep:#2E8B57;--bg:#F4FBF6;color:var(--ink);background:linear-gradient(160deg,#FFFFFF,#EAF8EE)!important;border:1px solid #CFE5D6;border-top:5px solid #90EE90;box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.contact form{--ink:#0B2A1E;--muted:#3E5A4C;--line:#CFE5D6;--forest:#06402A;--on-forest:#F3FBF5;--leaf-deep:#2E8B57;--bg:#F4FBF6;color:var(--ink);background:linear-gradient(160deg,#FFFFFF,#EAF8EE)!important;border:1px solid #CFE5D6;border-top:5px solid #90EE90;box-shadow:0 18px 40px rgba(6,64,42,.12)}
 .contact form input,.contact form select,.contact form textarea{background:#F4FBF6;color:#0B2A1E;border-color:#CFE5D6}
 .contact form input:focus,.contact form select:focus,.contact form textarea:focus{border-color:#2E8B57;background:#FFFFFF}
 .contact form .btn-primary:hover{background:#0A5236}
