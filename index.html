@@ -884,6 +884,102 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
 .w-hq-ring{fill:none;stroke:var(--leaf);stroke-width:3;transform-box:fill-box;transform-origin:center;animation:hRing 2.4s ease-out infinite}
 .w-hq-ic{fill:none;stroke:#C3F18A;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 @media (prefers-reduced-motion:reduce){.who-pic *,.who-art2 *{animation:none!important}.w-stem,.w-arrow{stroke-dashoffset:0}.w-leaf{transform:none}.w-ahead{opacity:1}}
+/* ---------- Contact page ---------- */
+.ct-hero{padding:56px 0 40px}
+.ct-hero-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:48px;align-items:center}
+.ct-hero h1{font-size:clamp(40px,5vw,66px);font-weight:700;margin-top:10px;max-width:14ch}
+.ct-hero p{max-width:52ch}
+.qc-list{display:grid;gap:12px;margin-top:28px;max-width:560px}
+.qc{display:grid;grid-template-columns:52px 1fr auto;gap:16px;align-items:center;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 18px;box-shadow:0 10px 28px -18px rgba(27,66,57,.5);transition:transform .2s,border-color .2s,box-shadow .2s}
+.qc:hover{transform:translateY(-2px);border-color:var(--leaf-deep);box-shadow:0 16px 34px -18px rgba(27,66,57,.6)}
+.qc-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:color-mix(in srgb,var(--leaf) 45%,#fff);transition:background .2s}
+.qc-ico svg{width:24px;height:24px;fill:none;stroke:var(--forest);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.qc:hover .qc-ico{background:var(--forest)}.qc:hover .qc-ico svg{stroke:#C3F18A}
+.qc:first-child .qc-ico svg{animation:qcWig 3s ease-in-out infinite}
+.qc:nth-child(2) .qc-ico svg{animation:qcRing 2.6s ease-in-out infinite}
+.qc:nth-child(3) .qc-ico svg{animation:qcBob 2.4s ease-in-out infinite}
+@keyframes qcWig{0%,80%,100%{transform:none}85%{transform:rotate(-8deg)}90%{transform:rotate(8deg)}95%{transform:rotate(-4deg)}}
+@keyframes qcRing{0%,70%,100%{transform:none}74%,82%{transform:rotate(-12deg)}78%,86%{transform:rotate(12deg)}}
+@keyframes qcBob{50%{transform:translateY(-3px)}}
+.qc-t small{display:block;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--leaf-deep)}
+.qc-t b{display:block;font-size:18px;font-weight:600;line-height:1.3}
+.qc-t em{display:block;font-style:normal;font-size:13px;color:var(--muted)}
+.qc-go{font-size:20px;color:var(--leaf-deep);transition:transform .2s}.qc:hover .qc-go{transform:translateX(4px)}
+.ct-art{border-radius:28px;background:radial-gradient(110% 90% at 70% 10%,color-mix(in srgb,var(--leaf) 60%,#fff),var(--bg) 70%);border:1px solid var(--line);padding:16px;box-shadow:0 24px 50px -24px rgba(27,66,57,.4)}
+.ct-art svg{display:block;width:100%;height:auto;overflow:visible}
+.ct-path{fill:none;stroke:color-mix(in srgb,var(--leaf-deep) 45%,transparent);stroke-width:2;stroke-dasharray:6 8;animation:aMarch 1.2s linear infinite}
+.ct-plane .pl{fill:var(--forest)}.ct-plane .pf{fill:var(--leaf)}
+.ct-shadow{fill:rgba(27,66,57,.12);animation:ctSh 4s ease-in-out infinite}
+@keyframes ctSh{50%{transform:scaleX(.9);opacity:.7}}
+.ct-shadow{transform-box:fill-box;transform-origin:center}
+.ct-env{animation:ctEnv 4s ease-in-out infinite}
+@keyframes ctEnv{50%{transform:translateY(-6px)}}
+.ct-back{fill:var(--leaf-deep)}
+.ct-letter rect:first-child{fill:#fff;stroke:var(--line)}
+.ct-letter .l1{fill:var(--forest)}.ct-letter .l2{fill:color-mix(in srgb,var(--leaf-deep) 30%,#fff)}
+.ct-letter{animation:ctLet 4s ease-in-out infinite}
+@keyframes ctLet{0%,15%{transform:translateY(40px)}45%,80%{transform:translateY(-14px)}100%{transform:translateY(40px)}}
+.ct-front{fill:var(--forest)}
+.ct-flap{fill:#24574B;transform-box:fill-box;transform-origin:50% 100%;animation:ctFlap 4s ease-in-out infinite}
+@keyframes ctFlap{0%,10%{transform:scaleY(-1)}25%,85%{transform:scaleY(1)}100%{transform:scaleY(-1)}}
+.ct-bub rect,.ct-bub path{fill:#fff;stroke:var(--line)}
+.ct-bub circle{fill:var(--leaf-deep);animation:ctType 1.2s ease-in-out infinite}
+.ct-bub circle:nth-of-type(2){animation-delay:.15s}.ct-bub circle:nth-of-type(3){animation-delay:.3s}
+@keyframes ctType{50%{transform:translateY(-4px);opacity:.5}}
+.ct-bub{animation:aFloatA 3.4s ease-in-out infinite}
+.ct-heart circle{fill:var(--leaf)}.ct-heart path{fill:var(--forest)}
+.ct-heart{transform-box:fill-box;transform-origin:center;animation:tbPt 2.2s ease-in-out infinite}
+@media (max-width:960px){.ct-hero-grid{grid-template-columns:1fr}.ct-art{max-width:480px}}
+/* form + next steps */
+.ct-main{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:start}
+.contact .cf-head{margin-bottom:4px}
+.contact .cf-head h2{font-size:30px;color:var(--ink)}
+.contact .cf-head p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.cf-send{gap:10px}
+.cf-send svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round;transition:transform .3s}
+.cf-send:hover svg{transform:translate(4px,-4px) rotate(8deg)}
+.nx{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px;box-shadow:0 14px 36px rgba(27,66,57,.08);position:sticky;top:96px}
+.nx h2{font-size:26px;margin-bottom:20px}
+.nx-list{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:22px}
+.nx-line{position:absolute;left:19px;top:20px;bottom:20px;width:3px;border-radius:3px;background:var(--line);overflow:hidden}
+.nx-line i{position:absolute;left:0;right:0;top:0;height:0;background:linear-gradient(var(--leaf-deep),var(--leaf));animation:nxFill 6s ease-in-out infinite}
+@keyframes nxFill{0%{height:0}70%,90%{height:100%}100%{height:100%;opacity:0}}
+.nx-list li{position:relative;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
+.nx-n{position:relative;z-index:1;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--card);border:3px solid var(--line);font:700 17px "Saira Semi Condensed",sans-serif;color:var(--muted);animation:nxOn 6s ease-in-out infinite;animation-delay:calc(var(--i) * 1.3s)}
+@keyframes nxOn{0%{background:var(--card);border-color:var(--line);color:var(--muted)}8%,60%{background:var(--forest);border-color:var(--forest);color:#C3F18A}75%,100%{background:var(--card);border-color:var(--line);color:var(--muted)}}
+.nx-list b{display:block;font-size:17px;font-weight:600;margin-top:8px}
+.nx-list span:not(.nx-n){display:block;font-size:14px;color:var(--muted);line-height:1.5}
+.nx-note{display:flex;gap:12px;align-items:flex-start;margin-top:24px;padding:14px 16px;border-radius:14px;background:color-mix(in srgb,var(--leaf) 28%,#fff)}
+.nx-note svg{width:22px;height:22px;flex:none;fill:none;stroke:var(--forest);stroke-width:1.8;stroke-linecap:round}
+.nx-note p{margin:0;font-size:14px;color:var(--ink)}
+@media (max-width:960px){.ct-main{grid-template-columns:1fr}.nx{position:static}}
+/* office */
+.ct-office{padding-top:24px}
+.of-card{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 18px 44px rgba(27,66,57,.10)}
+.of-map svg{display:block;width:100%;height:100%;min-height:300px}
+.mp-bg{fill:#EEF1E8}.mp-park{fill:color-mix(in srgb,var(--leaf) 55%,#fff)}.mp-water{fill:#CFE3E1}
+.mp-road{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round}.mp-road.big{stroke-width:12}
+.mp-ring{fill:color-mix(in srgb,var(--leaf) 50%,transparent);stroke:var(--leaf-deep);stroke-width:1.5;transform-box:fill-box;transform-origin:center;animation:mpRing 2.6s ease-out infinite}
+.mp-ring.r2{animation-delay:1.3s}
+@keyframes mpRing{from{transform:scale(.2);opacity:1}to{transform:scale(2.2);opacity:0}}
+.mp-pin{animation:mpDrop 2.6s ease-in-out infinite}
+@keyframes mpDrop{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.mp-pin path{fill:var(--forest)}.mp-pin circle{fill:#C3F18A}
+.mp-label rect{fill:#fff;stroke:var(--line)}
+.mp-label text{font:700 13px "Public Sans",sans-serif;fill:var(--forest)}.mp-label .sub{font-weight:500;font-size:11px;fill:var(--muted)}
+.of-txt{padding:40px}
+.of-txt h2{font-size:clamp(28px,3vw,38px);margin:10px 0 14px}
+.of-txt address{font-style:normal;font-size:18px;line-height:1.6;color:var(--ink);margin-bottom:14px}
+.of-txt p{color:var(--muted);margin:0 0 22px}
+@media (max-width:960px){.of-card{grid-template-columns:1fr}.of-map svg{min-height:240px}.of-txt{padding:28px}}
+/* quick answers */
+.qa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.qa{display:grid;gap:6px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;transition:transform .2s,border-color .2s}
+.qa:hover{transform:translateY(-3px);border-color:var(--leaf-deep)}
+.qa b{font-size:17px;font-weight:600}.qa span{color:var(--muted);font-size:15px}.qa em{font-style:normal;font-weight:600;font-size:14px;color:var(--leaf-deep);margin-top:4px}
+.ct-faq .head2 a{color:var(--leaf-deep)}
+@media (max-width:860px){.qa-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.ct-art *,.qc-ico svg,.nx-line i,.nx-n,.mp-ring,.mp-pin{animation:none!important}.nx-line i{height:100%}}
 </style>
 
 </head>
@@ -1168,28 +1264,34 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
 <div class="sv-block"><h4>How we help</h4><div class="who-svcs"><a class="who-svc" href="#services/fpa"><span class="dd-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><b>FP&amp;A</b><small>Budgets and forecasts that show where the business is heading and what to adjust.</small><em>Learn more →</em></a><a class="who-svc" href="#services/feasibility-studies"><span class="dd-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></span><b>Feasibility studies</b><small>Demand, costs, returns and risks laid out before you invest.</small><em>Learn more →</em></a><a class="who-svc" href="#services/virtual-cfo"><span class="dd-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><b>Virtual CFO</b><small>A senior finance partner for your leadership team, part-time and on demand.</small><em>Learn more →</em></a><a class="who-svc" href="#services/virtual-bookkeeping"><span class="dd-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span><b>Virtual bookkeeping</b><small>Transactions recorded, reconciled and closed on schedule in the tools you already use.</small><em>Learn more →</em></a></div></div>
 <div class="sv-cols"><div class="sv-block"><h4>What changes</h4><ul class="inc"><li>Extra capacity when you need it</li><li>Independent project appraisals</li><li>Consistent reporting packs</li><li>No long-term hiring commitment</li></ul></div><div class="sv-block"><h4>Where to start</h4><p class="who-start">Corporates often start with a defined project, such as a feasibility study or support through the budget cycle.</p></div></div>
 <div class="sub-cta"><a class="btn btn-primary" href="#contact">Talk to us about your business</a><a class="btn btn-ghost" href="#who">Who we help</a></div></div>
-<aside class="sub-side"><h2>Also see</h2><div class="sub-links"><a href="#who/startups"><span class="dd-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 2 4.5 5.5 4.5 9.5L12 17l-4.5-4.5C7.5 8.5 9 5 12 3z"/><circle cx="12" cy="10" r="1.6"/><path d="M8 15l-3 3M16 15l3 3M12 17v4"/></svg></span><span><b>Startups</b><small>Investor-ready numbers, cap tables and runway planning from the first round onward.</small></span></a><a href="#who/growing-businesses"><span class="dd-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><rect x="4" y="11" width="6" height="9"/><rect x="12" y="6" width="8" height="14"/><path d="M15 9h2M15 12h2M15 15h2"/></svg></span><span><b>Growing businesses</b><small>Reliable books, budgets and a part-time CFO as decisions get bigger and more frequent.</small></span></a></div><div class="faq-help"><strong>Have a question?</strong><p>Read our FAQs or send us a note.</p><a class="btn btn-primary" href="#faq">Read FAQs</a></div></aside></div></section></div><div class="view" data-view="contact" hidden><section class="page-head"><div class="wrap"><h1>Contact us</h1><p>Send an enquiry, email or call. We usually start with a short discovery call.</p></div></section><section class="contact">
-  <div class="wrap contact-grid">
-    <div>
-      <h2>Let’s talk about your numbers</h2>
-      <dl>
-        <div><dt>Email</dt><dd><a href="mailto:info@yourfinb.com">info@yourfinb.com</a></dd></div>
-        <div><dt>Phone</dt><dd><a href="tel:+19143862264">+1 914-386-2264</a></dd></div>
-        <div><dt>Address</dt><dd>30 N Gould St, Ste N,<br>Sheridan, WY 82801, USA</dd></div>
-      </dl>
-      <div class="plane-wrap" aria-hidden="true"><svg viewBox="0 0 420 170"><path id="pp" class="plane-path" d="M20 140 C90 40 170 150 240 80 S360 30 380 60"/><rect class="inbox" x="352" y="56" width="56" height="40" rx="6"/><path d="M352 60 l28 20 l28 -20" fill="none" stroke="var(--leaf-deep)" stroke-width="2"/><g class="plane-anim"><g><path class="plane" d="M-14 -8 L16 0 L-14 8 L-8 0 Z"/><path class="plane-fold" d="M-8 0 L16 0 L-14 8 Z"/><animateMotion dur="5s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".5 0 .3 1"><mpath href="#pp"/></animateMotion></g></g></svg></div>
-    </div>
-    <form id="enquiry" novalidate>
-      <div class="row2"><label>Your name<input name="name" autocomplete="name" required></label><label>Company<input name="company" autocomplete="organization"></label></div>
-      <div class="row2"><label>Email<input type="email" name="email" autocomplete="email" required></label>
+<aside class="sub-side"><h2>Also see</h2><div class="sub-links"><a href="#who/startups"><span class="dd-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 2 4.5 5.5 4.5 9.5L12 17l-4.5-4.5C7.5 8.5 9 5 12 3z"/><circle cx="12" cy="10" r="1.6"/><path d="M8 15l-3 3M16 15l3 3M12 17v4"/></svg></span><span><b>Startups</b><small>Investor-ready numbers, cap tables and runway planning from the first round onward.</small></span></a><a href="#who/growing-businesses"><span class="dd-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><rect x="4" y="11" width="6" height="9"/><rect x="12" y="6" width="8" height="14"/><path d="M15 9h2M15 12h2M15 15h2"/></svg></span><span><b>Growing businesses</b><small>Reliable books, budgets and a part-time CFO as decisions get bigger and more frequent.</small></span></a></div><div class="faq-help"><strong>Have a question?</strong><p>Read our FAQs or send us a note.</p><a class="btn btn-primary" href="#faq">Read FAQs</a></div></aside></div></section></div><div class="view" data-view="contact" hidden><section class="page-head ct-hero"><div class="wrap ct-hero-grid"><div><span class="eyebrow">Contact</span><h1>Let’s talk about your numbers</h1><p>Tell us where your business is today and what you need. Send an enquiry, email or call, and we will start with a free discovery call.</p><div class="qc-list"><a class="qc" href="mailto:info@yourfinb.com"><span class="qc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="qc-t"><small>Email us</small><b>info@yourfinb.com</b><em>Best for detailed questions and documents</em></span><span class="qc-go" aria-hidden="true">→</span></a><a class="qc" href="tel:+19143862264"><span class="qc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span class="qc-t"><small>Call us</small><b>+1 914-386-2264</b><em>Talk to us directly</em></span><span class="qc-go" aria-hidden="true">→</span></a><a class="qc" href="https://www.google.com/maps/search/?api=1&query=30+N+Gould+St+Ste+N+Sheridan+WY+82801" target="_blank" rel="noopener"><span class="qc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span class="qc-t"><small>Our office</small><b>30 N Gould St, Ste N, Sheridan, WY</b><em>Sheridan, Wyoming, USA</em></span><span class="qc-go" aria-hidden="true">→</span></a></div></div><div class="ct-art" aria-hidden="true"><svg viewBox="0 0 360 280">
+<path id="ctp" class="ct-path" d="M40 230 C20 140 110 60 190 90 S330 120 300 40"/>
+<g class="ct-plane"><path d="M-14 -8 L16 0 L-14 8 L-8 0Z" class="pl"/><path d="M-8 0 L16 0 L-14 8Z" class="pf"/><animateMotion dur="6s" repeatCount="indefinite" rotate="auto"><mpath href="#ctp"/></animateMotion></g>
+<ellipse class="ct-shadow" cx="180" cy="250" rx="110" ry="10"/>
+<g class="ct-env">
+<rect class="ct-back" x="90" y="130" width="180" height="110" rx="10"/>
+<g class="ct-letter"><rect x="106" y="110" width="148" height="110" rx="8"/><rect class="l1" x="122" y="128" width="80" height="8" rx="4"/><rect class="l2" x="122" y="146" width="112" height="6" rx="3"/><rect class="l2" x="122" y="160" width="100" height="6" rx="3"/><rect class="l2" x="122" y="174" width="90" height="6" rx="3"/></g>
+<path class="ct-front" d="M90 140 L180 196 L270 140 L270 230 a10 10 0 0 1 -10 10 L100 240 a10 10 0 0 1 -10 -10Z"/>
+<path class="ct-flap" d="M90 140 L180 82 L270 140Z"/>
+</g>
+<g class="ct-bub b1"><rect x="242" y="150" width="96" height="40" rx="14"/><path d="M262 190 l-6 12 16-12z"/><circle cx="268" cy="170" r="4"/><circle cx="290" cy="170" r="4"/><circle cx="312" cy="170" r="4"/></g>
+<g class="ct-heart"><circle cx="70" cy="110" r="18"/><path d="M70 118 l-8-8 a4.5 4.5 0 0 1 8-5 a4.5 4.5 0 0 1 8 5z"/></g>
+</svg></div></div></section><section class="contact"><div class="wrap ct-main"><form id="enquiry" novalidate><div class="cf-head"><h2>Send an enquiry</h2><p>Takes about a minute. Fields marked * are required.</p></div>
+      <div class="row2"><label>Your name *<input name="name" autocomplete="name" required></label><label>Company<input name="company" autocomplete="organization"></label></div>
+      <div class="row2"><label>Email *<input type="email" name="email" autocomplete="email" required></label>
         <label>Service you need<select name="service"><option>Virtual CFO</option><option>FP&amp;A</option><option>Virtual bookkeeping</option><option>Fundraising readiness</option><option>Cap table management</option><option>Feasibility studies</option><option>Not sure yet</option></select></label></div>
       <label>How can we help?<textarea name="message"></textarea></label>
-      <button class="btn btn-primary" type="submit">Send enquiry</button>
+      <button class="btn btn-primary cf-send" type="submit">Send enquiry <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L21 4l-7.5 18-2.5-7.5z"/><path d="M11 14.5L21 4"/></svg></button>
       <p class="form-msg" id="form-msg" role="status"></p>
       <p class="form-note">This opens your email app with your enquiry addressed to info@yourfinb.com.</p>
-    </form>
-  </div>
-</section></div></main>
+    </form><aside class="nx"><h2>What happens next</h2><ol class="nx-list"><span class="nx-line" aria-hidden="true"><i></i></span><li style="--i:0"><span class="nx-n">1</span><div><b>Send your enquiry</b><span>Use the form, email or call. A few lines about your business is enough.</span></div></li><li style="--i:1"><span class="nx-n">2</span><div><b>We reply</b><span>We read every enquiry and reply by email, usually with a couple of questions.</span></div></li><li style="--i:2"><span class="nx-n">3</span><div><b>Free discovery call</b><span>A relaxed call to understand your numbers, goals and current setup.</span></div></li><li style="--i:3"><span class="nx-n">4</span><div><b>Your plan and quote</b><span>A simple plan, the right mix of services and a clear quote. No obligation.</span></div></li></ol><div class="nx-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><p>Your details are only used to reply to your enquiry. We never share them.</p></div></aside></div></section><section class="ct-office"><div class="wrap"><div class="of-card">
+<div class="of-map" aria-hidden="true"><svg viewBox="0 0 360 280" preserveAspectRatio="xMidYMid slice"><rect class="mp-bg" width="360" height="280"/>
+<path class="mp-park" d="M210 150 h80 v70 h-80z"/><path class="mp-water" d="M0 230 C80 214 150 250 230 238 S330 220 360 232 V280 H0Z"/><path class="mp-road big" d="M0 120 C120 110 200 140 360 118"/><path class="mp-road big" d="M170 0 C176 90 160 160 188 280"/><path class="mp-road" d="M0 60 L360 76M0 200 L360 186M60 0 L80 280M290 0 L272 280M110 0 C130 100 100 200 120 280"/>
+<g transform="translate(182 122)"><circle class="mp-ring r1" r="30"/><circle class="mp-ring r2" r="30"/><g class="mp-pin"><path d="M0 0 C-14 -16 -18 -26 -18 -34 a18 18 0 0 1 36 0 C18 -26 14 -16 0 0Z"/><circle cy="-34" r="7"/></g></g>
+<g class="mp-label" transform="translate(208 70)"><rect width="128" height="38" rx="10"/><text x="14" y="16">Your FinB</text><text class="sub" x="14" y="30">Sheridan, Wyoming</text></g></svg></div>
+<div class="of-txt"><span class="eyebrow">Our office</span><h2>Based in Sheridan, working worldwide</h2><address>30 N Gould St, Ste N<br>Sheridan, WY 82801<br>USA</address>
+<p>We are a remote team, so most of our work happens by email and video call. Clients across North America, Europe, the Middle East, Asia and Australia work with us without ever needing to visit.</p>
+<a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=30+N+Gould+St+Ste+N+Sheridan+WY+82801" target="_blank" rel="noopener">Get directions →</a></div></div></div></section><section class="ct-faq"><div class="wrap"><div class="head2"><h2>Quick answers</h2><p>More in our <a href="#faq">FAQs</a>.</p></div><div class="qa-grid"><a class="qa" href="#faq"><b>How do we get started?</b><span>With a free discovery call.</span><em>Read more →</em></a><a class="qa" href="#faq"><b>How much do your services cost?</b><span>Pricing depends on scope. We send a clear quote.</span><em>Read more →</em></a><a class="qa" href="#faq"><b>Do you work with businesses outside the US?</b><span>Yes, we work with clients in many countries.</span><em>Read more →</em></a></div></div></section></div></main>
 <footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
@@ -1258,7 +1360,7 @@ header .brand::after{content:"";position:absolute;inset:0;background:linear-grad
   var ol=document.querySelector('.o-logo'),hl=document.querySelector('header .brand img');if(ol&&hl)ol.src=hl.src;
   var h1=document.querySelector('.hero h1');
   if(h1){var ws=h1.textContent.trim().split(' ');h1.setAttribute('aria-label',h1.textContent.trim());h1.innerHTML=ws.map(function(w,i){return '<span class="w" aria-hidden="true" style="animation-delay:'+(0.08*i+0.1).toFixed(2)+'s">'+w+'</span>'}).join(' ');}
-  var rvEls=[].slice.call(document.querySelectorAll('.mini a,.who-card,.tax-band,.contact dl,.contact form,.timeline li,.head2,.sign,.calc,.tz-wrap,.faq details,.kpi,.yr-list li,.flow-step,.hw-row,.rh-card,.hw-pr'));
+  var rvEls=[].slice.call(document.querySelectorAll('.mini a,.who-card,.tax-band,.contact form,.qc,.nx,.of-card,.qa,.timeline li,.head2,.sign,.calc,.tz-wrap,.faq details,.kpi,.yr-list li,.flow-step,.hw-row,.rh-card,.hw-pr'));
   rvEls.forEach(function(el){el.classList.add('rv');var sib=[].slice.call(el.parentNode.children).filter(function(c){return c.tagName===el.tagName});el.style.transitionDelay=(Math.max(0,sib.indexOf(el))*0.09).toFixed(2)+'s'});
   if('IntersectionObserver' in window){var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}})},{threshold:.18});rvEls.forEach(function(el){ro.observe(el)});}else rvEls.forEach(function(el){el.classList.add('in')});
   var tl=document.getElementById('timeline');
